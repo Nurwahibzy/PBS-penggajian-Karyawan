@@ -1,19 +1,12 @@
 import java.util.Scanner;
 public class PenggajianRestoran {
     
-
-
-
     public static void main(String[] args) {
-
-
         Scanner input = new Scanner(System.in);
-
 
         String nama_pegawai, jabatan, bulan_gaji;
         int jumlah_jam_kerja, jumlah_jam_lembur, total_jam_kerja;
         int upah = 15700, total_jam_lembur, total_gaji, gaji_pokok = 2000000;
-
 
         System.out.print("Masukkan Nama Lengkap Anda : ");
         nama_pegawai = input.nextLine();
@@ -31,8 +24,6 @@ public class PenggajianRestoran {
         total_gaji = gaji_pokok + total_jam_kerja + total_jam_lembur;
         System.out.println("Total Gaji Yang Anda Terima Adalah : " + "Rp." + total_gaji);
 
-
-     
     }
    
 }
