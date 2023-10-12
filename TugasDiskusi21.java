@@ -9,7 +9,7 @@ public class TugasDiskusi21 {
 
         String namaPegawai, jabatan, bulanGaji;
         int jumlahJamKerja, jumlahJamLembur, totalJamKerja, usia, bonus = 0, lamaBekerja;
-        int upah = 15700, totalJamLembur, totalGaji, gajiPokok = 2000000;
+        int upah = 15700, totalJamLembur, totalGaji, gajiPokok = 0;
 
         Scanner input16 = new Scanner(System.in);
 
