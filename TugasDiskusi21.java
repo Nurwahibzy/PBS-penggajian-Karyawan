@@ -7,9 +7,9 @@ public class TugasDiskusi21 {
         String[] username = { "admin1", "pegawai2", "manajer3" };
         String[] password = { "adminpassword1", "pegawaipassword2", "manajerpassword3" };
 
-        String nama_pegawai, jabatan, bulan_gaji;
-        int jumlah_jam_kerja, jumlah_jam_lembur, total_jam_kerja, usia, bonus = 0, lamaBekerja;
-        int upah = 15700, total_jam_lembur, total_gaji, gaji_pokok = 2000000;
+        String namaPegawai, jabatan, bulanGaji;
+        int jumlahJamKerja, jumlahJamLembur, totalJamKerja, usia, bonus = 0, lamaBekerja;
+        int upah = 15700, totalJamLembur, totalGaji, gajiPokok = 2000000;
 
         Scanner input16 = new Scanner(System.in);
 
@@ -33,7 +33,7 @@ public class TugasDiskusi21 {
             System.out.println("Selamat datang, " + usernameInput + "!");
             System.out.println("=== MOHON MENGISI DATA DI BAWAH INI ====");
             System.out.print("Masukkan Nama Lengkap Anda : ");
-            nama_pegawai = input16.nextLine();
+            namaPegawai = input16.nextLine();
             System.out.print("Masukkan Jabatan Anda (A/B/C): ");
             jabatan = input16.nextLine();
             System.out.print("Masukkan Usia Anda : ");
@@ -42,17 +42,17 @@ public class TugasDiskusi21 {
             lamaBekerja = input16.nextInt();
             input16.nextLine();
             System.out.print("Masukkan Gaji Bulan Yang Akan Diambil : ");
-            bulan_gaji = input16.nextLine();
+            bulanGaji = input16.nextLine();
             System.out.print("Masukkan Jumlah Jam Kerja Anda : ");
-            jumlah_jam_kerja = input16.nextInt();
+            jumlahJamKerja = input16.nextInt();
             System.out.print("Masukkan Jumlah Jam Lembur Anda Jika Ada : ");
-            jumlah_jam_lembur = input16.nextInt();
+            jumlahJamLembur = input16.nextInt();
 
             // Memilih jabatan
             switch (jabatan) {
 
                 case "A":
-                    gaji_pokok = 2800000;
+                    gajiPokok = 2800000;
                     if (usia >= 50 && lamaBekerja >= 5) {
                         bonus = 1000000;
                         System.out.println("Jabatan anda " + jabatan + ", Bonus anda " + bonus);
@@ -61,7 +61,7 @@ public class TugasDiskusi21 {
                     }
                     break;
                 case "B":
-                    gaji_pokok = 2500000;
+                    gajiPokok = 2500000;
                     if (usia >= 50 && lamaBekerja >= 5) {
                         bonus = 1000000;
                         System.out.println("Jabatan anda " + jabatan + ", Bonus anda " + bonus);
@@ -70,7 +70,7 @@ public class TugasDiskusi21 {
                     }
                     break;
                 case "C":
-                    gaji_pokok = 2300000;
+                    gajiPokok = 2300000;
                     if (usia >= 50 && lamaBekerja >= 5) {
                         bonus = 1000000;
                         System.out.println("Jabatan anda " + jabatan + ", Bonus anda " + bonus);
@@ -83,11 +83,11 @@ public class TugasDiskusi21 {
                     break;
             }
     
-            total_jam_kerja = jumlah_jam_kerja * 26;// rata - rata jumlah dengan 6 hari kerja seminggu
-            total_jam_lembur = jumlah_jam_lembur * upah;
-            total_gaji = gaji_pokok + total_jam_lembur  + bonus;
-            System.out.println("\nTotal Jam Kerja Anda adalah " + total_jam_kerja+ " jam");
-            System.out.println("Total Gaji Yang Anda Terima Adalah : " + "Rp." + total_gaji);
+            totalJamKerja= jumlahJamKerja * 26;// rata - rata jumlah dengan 6 hari kerja seminggu
+            totalJamLembur = jumlahJamLembur * upah;
+            totalGaji = gajiPokok + totalJamLembur  + bonus;
+            System.out.println("\nTotal Jam Kerja Anda adalah " + totalJamKerja+ " jam");
+            System.out.println("Total Gaji Yang Anda Terima Adalah : " + "Rp." + totalGaji);
 
         } else {
             System.out.println("Username dan password salah. Silakan coba lagi.");
