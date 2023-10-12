@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TugasDiskusiJobsheet621 {
+public class TugasDiskusi2_21 {
 
     public static void main(String[] args) {
 
