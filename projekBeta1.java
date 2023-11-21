@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class projekBeta1 {
@@ -10,7 +9,7 @@ public class projekBeta1 {
         String namaPegawai, jabatan, bulanGaji, kehadiran;
         int jumlahJamKerja, jumlahJamLembur, totalJamKerja, usia, bonus = 0, lamaBekerja;
         int upah = 15700, pajak = 25000, totalJamLembur, totalGaji, gajiPokok = 0;
-        int menuAdmin, jumlahPegawai = 0, menuManajer, menuPegawai, menuManajemen, jumlahPermintaan = 0;
+        int menuAdmin, jumlahPegawai = 3, menuManajer, menuPegawai, menuManajemen, jumlahPermintaan = 0;
         boolean isAuthenticated = false;
         boolean pesan = true;
         boolean ifManajer = true, ifPegawai = true;
@@ -150,7 +149,7 @@ public class projekBeta1 {
                                             } else if (kehadiran.equalsIgnoreCase("n")) {
                                                 absen[i][j] = "Tidak Hadir";
                                             } else {
-                                                System.out.println("Input salah");
+                                                System.out.println("Input salah, masukkan kembali dengan benar!");
                                                 j--;
                                             }
 
@@ -697,8 +696,10 @@ public class projekBeta1 {
 
                 } else {
                     System.out.println("Username dan password salah. Silakan coba lagi.");
-                    System.out.printf("Peringatan! : Anda memiliki %dx kesempatan login \n", sisaKesempatan);
+                    System.out.println();
                     // memberitahu sisa kesempatan login
+                    System.out.printf("Peringatan! : Anda memiliki %dx kesempatan login \n", sisaKesempatan);
+                    System.out.println();
                     pesan = false;
                 }
 
