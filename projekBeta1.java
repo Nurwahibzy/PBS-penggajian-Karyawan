@@ -385,7 +385,7 @@ public class projekBeta1 {
 
                                         case 6:
                                             System.out.println("Terima kasih telah menggunakan program ini.");
-                                            System.exit(0);
+                                            //System.exit(0);
                                             break;
 
                                         default:
