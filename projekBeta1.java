@@ -567,13 +567,13 @@ public class projekBeta1 {
                                     System.out.print("Kinerja Karyawan (Baik/Cukup/Perlu Perbaikan): ");
                                     String kinerja = input.next();
                                     switch (kinerja.toLowerCase()) {
-                                        case "baik":
+                                        case "Baik":
                                             pegawaiBerkinerjaBaik++;
                                             break;
-                                        case "cukup":
+                                        case "Cukup":
                                             pegawaiCukupBerkinerja++;
                                             break;
-                                        case "perlu":
+                                        case "Perlu Perbaikan":
                                             pegawaiPerluPerbaikan++;
                                             break;
                                         default:
