@@ -14,6 +14,7 @@ public class projekBeta1 {
         boolean isAuthenticated = false;
         boolean pesan = true;
         boolean ifManajer = true, ifPegawai = true;
+        boolean backToAdminMenu = false;
         double totalPengeluaranGaji = 0;
         int pegawaiBerkinerjaBaik = 0, pegawaiCukupBerkinerja = 0, pegawaiPerluPerbaikan = 0, totalKehadiran = 0,
                 totalTidakHadir = 0;
@@ -193,7 +194,7 @@ public class projekBeta1 {
                                     System.out.println("3. Hapus Data Pegawai");
                                     System.out.println("4. Cari Data Pegawai");
                                     System.out.println("5. Lihat Detail Data Pegawai");
-                                    System.out.println("6. Keluar");
+                                    System.out.println("6. Keluar (Log Out)");
                                     System.out.print("Pilih Menu: ");
                                     menuManajemen = input.nextInt();
                                     input.nextLine();
@@ -418,6 +419,7 @@ public class projekBeta1 {
                                         case 6:
                                             System.out.println("Terima kasih telah menggunakan program ini.");
                                             //System.exit(0);
+                                            backToAdminMenu = true;
                                             break;
 
                                         default:
@@ -524,15 +526,17 @@ public class projekBeta1 {
 
                             } else if (menuAdmin == 4) {
 
+                                int pilihanMenuCuti;
+
                                 while (true) {
                                     System.out.println("=== MENU PERMINTAAN dan PERSETUAJUAN CUTI ===");
                                     System.out.println("1. Lihat Permintaan Cuti");
                                     System.out.println("2. Proses Permintaan Cuti");
                                     System.out.println("3. Persetujuan Cuti");
-                                    System.out.println("4. Keluar");
-                                    System.out.print("Pilih menu (1/2/3): ");
+                                    System.out.println("4. Keluar (Log Out)");
+                                    System.out.print("Pilih menu (1/2/3/4): ");
 
-                                    int pilihanMenuCuti = input.nextInt();
+                                    pilihanMenuCuti = input.nextInt();
 
                                     switch (pilihanMenuCuti) {
                                         case 1:
@@ -578,13 +582,17 @@ public class projekBeta1 {
 
                                         case 4:
                                             System.out.println("Terima kasih telah menggunakan program ini.");
-                                            input.close();
-                                            System.exit(0);
+                                            //input.close();
+                                            //System.exit(0);
                                             break;
 
                                         default:
                                             System.out.println("Menu tidak valid. Silakan pilih menu yang sesuai.");
                                             break;
+                                    }
+                                    if (pilihanMenuCuti == 4) {
+                                        input.nextLine();
+                                        break; // Keluar dari loop jika pilihanMenuCuti adalah 4
                                     }
                                 }
 
