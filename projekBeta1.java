@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class projekBeta1 {
@@ -30,6 +31,9 @@ public class projekBeta1 {
         String[] teleponPegawai = new String[100];
         int[] jumlahHariCuti = new int[100];
         boolean[] statusPersetujuan = new boolean[100];
+        double[][] jadwalGaji = new double[jumlahPegawai][6]; // Array 2 dimensi untuk menyimpan jadwal gaji
+        String[] jabatanPegawai = new String[jumlahPegawai];
+        LocalDate[] tanggalPembayaran = new LocalDate[jumlahPegawai];
 
         // Mendeklarasikan nama-nama hari
         String namaHari[] = { "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu" };
@@ -428,31 +432,16 @@ public class projekBeta1 {
                                 jumlahPegawai = input.nextInt();
                                 input.nextLine();
                             
-                                // Membuat array 2 dimensi untuk menyimpan data gaji pegawai
-                                double[][] jadwalGaji = new double[jumlahPegawai][6]; // Array 2 dimensi untuk menyimpan jadwal gaji
-                            
-                                // Membuat array untuk menyimpan informasi jabatan pegawai
-                                String[] jabatanPegawai = new String[jumlahPegawai];
-                            
                                 // Mengisi jadwal gaji setiap pegawai
                                 for (int i = 0; i < jumlahPegawai; i++) {
                                     System.out.println("Masukkan data untuk Pegawai " + (i + 1) + ":");
                                     System.out.print("Nama Pegawai: ");
                                     namaPegawai2[i] = input.nextLine();
-                                    //System.out.print("Jenis Kelamin Pegawai: ");
-                                    //jenisKelaminPegawai[i] = input.nextLine();
-                                    //System.out.print("Tempat dan Tanggal Lahir Pegawai: ");
-                                    //ttlPegawai[i] = input.nextLine();
-                                    //System.out.print("Kebangsaan Pegawai: ");
-                                    //kebangsaanPegawai[i] = input.nextLine();
-                                    //System.out.print("Email Pegawai: ");
-                                    //emailPegawai[i] = input.nextLine();
-                                    //System.out.print("Alamat Pegawai: ");
-                                    //alamatPegawai[i] = input.nextLine();
-                                    //System.out.print("Nomor Telepon Pegawai: ");
-                                    //teleponPegawai[i] = input.nextLine();
                                     System.out.print("Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
                                     jabatanPegawai[i] = input.nextLine();
+                                    System.out.print("Tanggal Pembayaran Gaji (YYYY-MM-DD): ");
+                                    String tanggalPembayaranStr = input.nextLine();
+                                    tanggalPembayaran[i] = LocalDate.parse(tanggalPembayaranStr);
                             
                                     System.out.println("Masukkan jadwal gaji untuk Pegawai " + (i + 1) + ":");
                                     System.out.print("Gaji Pokok: ");
@@ -470,6 +459,7 @@ public class projekBeta1 {
                                     System.out.println("Pegawai " + (i + 1) + ":");
                                     System.out.println("Nama: " + namaPegawai2[i]);
                                     System.out.println("Jabatan: " + jabatanPegawai[i]);
+                                    System.out.println("Tanggal Pembayaran: " + tanggalPembayaran[i]);
                                     System.out.println("Gaji Pokok: " + jadwalGaji[i][0]);
                                     System.out.println("Bonus: " + jadwalGaji[i][1]);
                                     System.out.println("Potongan: " + jadwalGaji[i][2]);
