@@ -264,7 +264,7 @@ public class projekBeta1 {
                                         
                                                     switch (pilihanUbah) {
                                                         case 1:
-                                                            System.out.print("Masukkan Nama Lengkap Pegawai: ");
+                                                            System.out.print("Masukkan Nama Pegawai: ");
                                                             namaPegawai2[i] = input.nextLine();
                                                             break;
                                                         case 2:
@@ -427,13 +427,33 @@ public class projekBeta1 {
                                 System.out.print("Masukkan Jumlah Pegawai: ");
                                 jumlahPegawai = input.nextInt();
                                 input.nextLine();
-
+                            
                                 // Membuat array 2 dimensi untuk menyimpan data gaji pegawai
-                                double[][] jadwalGaji = new double[jumlahPegawai][6]; // Array 2 dimensi untuk menyimpan
-                                                                                      // jadwal gaji
-
+                                double[][] jadwalGaji = new double[jumlahPegawai][6]; // Array 2 dimensi untuk menyimpan jadwal gaji
+                            
+                                // Membuat array untuk menyimpan informasi jabatan pegawai
+                                String[] jabatanPegawai = new String[jumlahPegawai];
+                            
                                 // Mengisi jadwal gaji setiap pegawai
                                 for (int i = 0; i < jumlahPegawai; i++) {
+                                    System.out.println("Masukkan data untuk Pegawai " + (i + 1) + ":");
+                                    System.out.print("Nama Pegawai: ");
+                                    namaPegawai2[i] = input.nextLine();
+                                    //System.out.print("Jenis Kelamin Pegawai: ");
+                                    //jenisKelaminPegawai[i] = input.nextLine();
+                                    //System.out.print("Tempat dan Tanggal Lahir Pegawai: ");
+                                    //ttlPegawai[i] = input.nextLine();
+                                    //System.out.print("Kebangsaan Pegawai: ");
+                                    //kebangsaanPegawai[i] = input.nextLine();
+                                    //System.out.print("Email Pegawai: ");
+                                    //emailPegawai[i] = input.nextLine();
+                                    //System.out.print("Alamat Pegawai: ");
+                                    //alamatPegawai[i] = input.nextLine();
+                                    //System.out.print("Nomor Telepon Pegawai: ");
+                                    //teleponPegawai[i] = input.nextLine();
+                                    System.out.print("Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
+                                    jabatanPegawai[i] = input.nextLine();
+                            
                                     System.out.println("Masukkan jadwal gaji untuk Pegawai " + (i + 1) + ":");
                                     System.out.print("Gaji Pokok: ");
                                     jadwalGaji[i][0] = input.nextDouble();
@@ -441,18 +461,15 @@ public class projekBeta1 {
                                     jadwalGaji[i][1] = input.nextDouble();
                                     System.out.print("Potongan: ");
                                     jadwalGaji[i][2] = input.nextDouble();
-                                    jadwalGaji[i][3] = jadwalGaji[i][0] + jadwalGaji[i][1] - jadwalGaji[i][2]; // Total
-                                                                                                               // gaji
-                                                                                                               // disimpan
-                                                                                                               // di
-                                                                                                               // kolom
-                                                                                                               // ke-4
+                                    jadwalGaji[i][3] = jadwalGaji[i][0] + jadwalGaji[i][1] - jadwalGaji[i][2]; // Total gaji disimpan di kolom ke-4
                                 }
-
+                            
                                 // Menampilkan jadwal gaji setiap pegawai
                                 System.out.println("\nJadwal Pembayaran Gaji:");
                                 for (int i = 0; i < jumlahPegawai; i++) {
                                     System.out.println("Pegawai " + (i + 1) + ":");
+                                    System.out.println("Nama: " + namaPegawai2[i]);
+                                    System.out.println("Jabatan: " + jabatanPegawai[i]);
                                     System.out.println("Gaji Pokok: " + jadwalGaji[i][0]);
                                     System.out.println("Bonus: " + jadwalGaji[i][1]);
                                     System.out.println("Potongan: " + jadwalGaji[i][2]);
@@ -461,6 +478,7 @@ public class projekBeta1 {
                                 }
                                 input.nextLine();
                                 break;
+                            
 
                             } else if (menuAdmin == 3) {
                                 System.out.print("Masukkan jumlah pegawai: ");
