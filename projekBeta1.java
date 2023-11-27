@@ -10,11 +10,10 @@ public class projekBeta1 {
         String namaPegawai, jabatan, bulanGaji, kehadiran;
         int jumlahJamKerja, jumlahJamLembur, totalJamKerja, usia, bonus = 0, lamaBekerja;
         int upah = 15700, pajak = 25000, totalJamLembur, totalGaji, gajiPokok = 0;
-        int menuAdmin, jumlahPegawai = 3, menuManajer, menuPegawai, menuManajemen, jumlahPermintaan = 0;
+        int menuAdmin = 0, jumlahPegawai = 3, menuManajer, menuPegawai, menuManajemen, jumlahPermintaan = 0;
         boolean isAuthenticated = false;
         boolean pesan = true;
         boolean ifManajer = true, ifPegawai = true;
-        boolean backToAdminMenu = false;
         double totalPengeluaranGaji = 0;
         int pegawaiBerkinerjaBaik = 0, pegawaiCukupBerkinerja = 0, pegawaiPerluPerbaikan = 0, totalKehadiran = 0,
                 totalTidakHadir = 0;
@@ -419,7 +418,6 @@ public class projekBeta1 {
                                         case 6:
                                             System.out.println("Terima kasih telah menggunakan program ini.");
                                             //System.exit(0);
-                                            backToAdminMenu = true;
                                             break;
 
                                         default:
@@ -428,7 +426,7 @@ public class projekBeta1 {
                                     }
 
                                 } while (menuManajemen != 6);
-
+                                
                             } else if (menuAdmin == 2) {
                                 System.out.print("Masukkan Jumlah Pegawai: ");
                                 jumlahPegawai = input.nextInt();
@@ -469,9 +467,8 @@ public class projekBeta1 {
                                     System.out.println("-----------------------------");
                                 }
                                 input.nextLine();
-                                break;
+                                //break;
                             
-
                             } else if (menuAdmin == 3) {
                                 System.out.print("Masukkan jumlah pegawai: ");
                                 int jumlahPegawai3 = input.nextInt();
@@ -522,7 +519,7 @@ public class projekBeta1 {
 
                                 System.out.println(
                                         "Karyawan dengan Jam Kerja Terbanyak: " + namaPegawai3[indexKaryawanMaxJam]);
-                                break;
+                                //break;
 
                             } else if (menuAdmin == 4) {
 
@@ -608,21 +605,23 @@ public class projekBeta1 {
                                     double gajiPegawai = input.nextDouble();
                                     totalPengeluaranGaji += gajiPegawai;
 
-                                    System.out.print("Kinerja Karyawan (Baik/Cukup/Perlu Perbaikan): ");
-                                    String kinerja = input.next();
-                                    switch (kinerja.toLowerCase()) {
-                                        case "Baik":
-                                            pegawaiBerkinerjaBaik++;
-                                            break;
-                                        case "Cukup":
-                                            pegawaiCukupBerkinerja++;
-                                            break;
-                                        case "Perlu Perbaikan":
-                                            pegawaiPerluPerbaikan++;
-                                            break;
-                                        default:
-                                            System.out.println("Pilihan kinerja tidak valid.");
-                                            i--; // Ulangi input untuk karyawan ini
+                                    System.out.print("Kinerja Karyawan (1. Baik / 2. Cukup / 3. Perlu Perbaikan): ");
+                                    int kinerja = input.nextInt();
+
+                                    switch (kinerja) {
+                                    case 1:
+                                    pegawaiBerkinerjaBaik++;
+                                    break;
+                                    case 2:
+                                    pegawaiCukupBerkinerja++;
+                                    break;
+                                    case 3:
+                                    pegawaiPerluPerbaikan++;
+                                    break;
+                                    default:
+                                    System.out.println("Pilihan kinerja tidak valid.");
+                                    i--; // Ulangi input untuk karyawan ini
+                                    break;
                                     }
                                 }
 
@@ -644,7 +643,7 @@ public class projekBeta1 {
                                 System.out.println("   Total Tidak Hadir: " + totalTidakHadir + " hari");
 
                                 input.nextLine();
-                                break;
+                                //break;
 
                             } else if (menuAdmin == 6) {
                                 System.out.println("Terima kasih telah menggunakan program ini.");
@@ -654,7 +653,7 @@ public class projekBeta1 {
                             else {
                                 System.out.println("Tidak Ada Pilihan");
                             }
-                            break;
+                            //break;
 
                         }
 
