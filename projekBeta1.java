@@ -173,7 +173,7 @@ public class projekBeta1 {
 
                     } else if (usernameInput.equalsIgnoreCase("admin1")) {
                         while (true) {
-                            System.out.println("===BERIKUT PILIHAN MENU ADMIN===");
+                            System.out.println("\n===BERIKUT PILIHAN MENU ADMIN===");
                             System.out.println("1. Menu Manajemen Data Pegawai");
                             System.out.println("2. Menu Penyusunan Jadwal Pembayaran Gaji");
                             System.out.println("3. Menu Catat dan Lacak Kehadiran Pegawai dan Jam Kerja");
@@ -518,7 +518,7 @@ public class projekBeta1 {
                                 }
 
                                 System.out.println(
-                                        "Karyawan dengan Jam Kerja Terbanyak: " + namaPegawai3[indexKaryawanMaxJam]);
+                                        "Pegawai dengan Jam Kerja Terbanyak: " + namaPegawai3[indexKaryawanMaxJam]);
                                 //break;
 
                             } else if (menuAdmin == 4) {
@@ -600,12 +600,17 @@ public class projekBeta1 {
                                 int jumlahPegawai5 = input.nextInt();
 
                                 for (int i = 0; i < jumlahPegawai5; i++) {
-                                    System.out.println("\nData Karyawan " + (i + 1) + ":");
-                                    System.out.print("Gaji Karyawan: ");
+                                    System.out.println("\nData Pegawai " + (i + 1) + ":");
+                                    input.nextLine();
+                                    System.out.print("Nama Pegawai: ");
+                                    String namaPegawai5 = input.nextLine();
+                                    System.out.print("Jabatan Pegawai: ");
+                                    String jabatanPegawai5 = input.nextLine();
+                                    System.out.print("Gaji Pegawai: ");
                                     double gajiPegawai = input.nextDouble();
                                     totalPengeluaranGaji += gajiPegawai;
 
-                                    System.out.print("Kinerja Karyawan (1. Baik / 2. Cukup / 3. Perlu Perbaikan): ");
+                                    System.out.print("Kinerja Pegawai (1. Baik / 2. Cukup / 3. Perlu Perbaikan): ");
                                     int kinerja = input.nextInt();
 
                                     switch (kinerja) {
@@ -634,10 +639,10 @@ public class projekBeta1 {
                                 System.out.println("\n=== Laporan Perusahaan ===");
                                 System.out.println("1. Pengeluaran Gaji");
                                 System.out.println("   Total Pengeluaran Gaji: Rp" + totalPengeluaranGaji);
-                                System.out.println("\n2. Kinerja Karyawan");
-                                System.out.println("   Karyawan Berkinerja Baik: " + pegawaiBerkinerjaBaik);
-                                System.out.println("   Karyawan Cukup Berkinerja: " + pegawaiCukupBerkinerja);
-                                System.out.println("   Karyawan Perlu Perbaikan: " + pegawaiPerluPerbaikan);
+                                System.out.println("\n2. Kinerja Pegawai");
+                                System.out.println("   Pegawai Berkinerja Baik: " + pegawaiBerkinerjaBaik);
+                                System.out.println("   Pegawai Cukup Berkinerja: " + pegawaiCukupBerkinerja);
+                                System.out.println("   Pegawai Perlu Perbaikan: " + pegawaiPerluPerbaikan);
                                 System.out.println("\n3. Tren Kehadiran");
                                 System.out.println("   Total Kehadiran: " + totalKehadiran + " hari");
                                 System.out.println("   Total Tidak Hadir: " + totalTidakHadir + " hari");
