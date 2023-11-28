@@ -756,7 +756,7 @@ public class projekBeta1 {
                 System.out.println("Terimakasih!");
             } else {
                 System.out.println("Anda telah gagal login sebanyak 3 kali. Aplikasi otomatis keluar.");
-                //input.close();
+                break;
             }
 
         }
