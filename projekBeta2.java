@@ -19,7 +19,7 @@ public class projekBeta2 {
     static double totalPengeluaranGaji = 0;
     
     // Menginisialisasi absen
-    static String[][] absen = new String[100][7];
+    static String[][] absen = new String[100][6];
     // Mendeklarasikan nama-nama hari
     static String namaHari[] = { "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu" };
 
@@ -167,7 +167,7 @@ public class projekBeta2 {
         input.nextLine();
         switch (menuManajer) {
             case 1:
-                lihatDetailPegawai();
+                lihatDetailPegawai(2);
                 break;
             case 2:
                 cetakAbsensiKaryawan();
@@ -211,7 +211,7 @@ public class projekBeta2 {
                 namaCari();
                 break;
             case 5:
-                lihatDetailPegawai();
+                lihatDetailPegawai(1);
                 break;
             case 6:
                 menuAdmin();
@@ -403,7 +403,7 @@ public class projekBeta2 {
     
     }
 
-    static void lihatDetailPegawai() {
+    static void lihatDetailPegawai(int a) {
         System.out.println("Pilih nomor pegawai untuk melihat detail:");
         for (int i = 0; i < jumlahPegawai; i++) {
             System.out.println((i + 1) + ". " + dataPegawai[i][0]);
@@ -411,6 +411,7 @@ public class projekBeta2 {
 
         System.out.print("Masukkan nomor pegawai: ");
         int pilihan = input.nextInt();
+        System.out.println();
 
         if (pilihan > 0 && pilihan <= jumlahPegawai) {
         int i = pilihan - 1;
@@ -419,14 +420,18 @@ public class projekBeta2 {
         System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
         System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
         System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-        System.out.println("Email: " + dataPegawai[i][3]);
-        System.out.println("Alamat: " + dataPegawai[i][4]);
-        System.out.println("Telepon: " + dataPegawai[i][5]);
+        System.out.println("Email: " + dataPegawai[i][4]);
+        System.out.println("Alamat: " + dataPegawai[i][5]);
+        System.out.println("Telepon: " + dataPegawai[i][6]);
         } else {
         System.out.println("Nomor pegawai tidak valid.");
         }
-        
-        menuManajemen();
+        // mengecek akan kembali ke menu mana(admin/manajer)
+        if (a == 1) {
+            menuManajemen();
+        } else {
+            menuManajer();
+        }
     }
 
     static void namaCari() {
