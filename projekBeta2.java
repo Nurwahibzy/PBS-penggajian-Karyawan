@@ -10,10 +10,13 @@ public class projekBeta2 {
     static String[][] dataPegawai = new String[100][8]; // 100 pegawai, 8 atribut(nama, jenisKelamin,ttl, kebangsaan,
                                                         // email, alamat, noTelp, jabatan )
     static double[][] jadwalGaji = new double[100][4]; // 100 pegawai, 4 atribut(gaji pokok, bonus, potongan, total gaji)
+    static int[][] kinerjaPegawai = new int[100][3]; // 100 pegawai, 3 atribut(baik, cukup, perlu perbaikan)
+    static int totalKehadiran = 0, totalTidakHadir = 0;
     static LocalDate[] tanggalPembayaran;
     static int[] jumlahHariCuti;
     static boolean[] statusPersetujuan;
     static int jumlahPermintaan = 0;
+    static double totalPengeluaranGaji = 0;
     
     // Menginisialisasi absen
     static String[][] absen = new String[100][7];
@@ -114,7 +117,7 @@ public class projekBeta2 {
                 menuCuti();
                 break;
             case 5:
-
+                menuKinerjaPegawai();
                 break;
             case 6:
                 login();
@@ -632,6 +635,68 @@ public class projekBeta2 {
         }
     }
 
+    static void menuKinerjaPegawai() {
+        // Input data gaji dan kinerja pegawai
+        System.out.print("Masukkan jumlah pegawai: ");
+        jumlahPegawai = input.nextInt();
+    
+        for (int i = 0; i < jumlahPegawai; i++) {
+            System.out.println("\nData Pegawai " + (i + 1) + ":");
+            input.nextLine();
+            System.out.print("Nama Pegawai: ");
+            dataPegawai[i][0] = input.nextLine();
+            System.out.print("Jabatan Pegawai: ");
+            dataPegawai[i][7] = input.nextLine();
+            System.out.print("Gaji Pegawai: ");
+            jadwalGaji[i][3] = input.nextDouble();
+            totalPengeluaranGaji += jadwalGaji[i][3];
+    
+            System.out.print("Kinerja Pegawai (1. Baik / 2. Cukup / 3. Perlu Perbaikan): ");
+            int kinerja = input.nextInt();
+    
+            switch (kinerja) {
+                case 1:
+                    kinerjaPegawai[i][0]++;
+                    break;
+                case 2:
+                    kinerjaPegawai[i][1]++;
+                    break;
+                case 3:
+                    kinerjaPegawai[i][2]++;
+                    break;
+                default:
+                    System.out.println("Pilihan kinerja tidak valid.");
+                    i--; // Ulangi input untuk karyawan ini
+                    break;
+            }
+        }
+    
+        // Input data kehadiran
+        System.out.print("\nMasukkan total kehadiran: ");
+        totalKehadiran = input.nextInt();
+        totalTidakHadir = jumlahPegawai * 26 - totalKehadiran;
+    
+        // Menampilkan laporan
+        System.out.println("\n=== Laporan Perusahaan ===");
+        System.out.println("1. Pengeluaran Gaji");
+        System.out.println("   Total Pengeluaran Gaji: Rp" + totalPengeluaranGaji);
+        System.out.println("\n2. Kinerja Pegawai");
+    
+        // Menampilkan data kinerja pegawai
+        for (int i = 0; i < jumlahPegawai; i++) {
+            System.out.println("   " + dataPegawai[i][0]);
+            System.out.println("      - Berkinerja Baik: " + kinerjaPegawai[i][0]);
+            System.out.println("      - Cukup Berkinerja: " + kinerjaPegawai[i][1]);
+            System.out.println("      - Perlu Perbaikan: " + kinerjaPegawai[i][2]);
+        }
+    
+        System.out.println("\n3. Tren Kehadiran");
+        System.out.println("   Total Kehadiran: " + totalKehadiran + " hari");
+        System.out.println("   Total Tidak Hadir: " + totalTidakHadir + " hari");
+    
+        menuAdmin();
+    }
+    
 
     static void cetakAbsensiKaryawan() {
         System.out.println("\n Daftar Absensi karyawan: \n");
