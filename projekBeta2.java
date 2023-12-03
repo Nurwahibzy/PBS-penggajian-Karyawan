@@ -195,10 +195,10 @@ public class projekBeta2 {
                 editPegawai();
                 break;
             case 3:
-                namaCari();
+                hapusPegawai();
                 break;
             case 4:
-
+                namaCari();
                 break;
             case 5:
 
@@ -343,6 +343,54 @@ public class projekBeta2 {
         menuManajemen();
         }
                                                               
+    }
+
+    static void hapusPegawai() {
+        System.out.print("Masukkan Nama Pegawai yang akan dihapus: ");
+        String namaHapus = input.nextLine();
+        int foundIndex = -1;
+
+        for (int i = 0; i < jumlahPegawai; i++) {
+            if (dataPegawai[i][0].equalsIgnoreCase(namaHapus)) {
+                System.out.println("Data ditemukan!");
+                System.out.println("Pegawai ke-" + (i + 1));
+                System.out.println("Nama: " + dataPegawai[i][0]);
+                System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
+                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
+                System.out.println("Kebangsaan: " + dataPegawai[i][3]);
+                System.out.println("Email: " + dataPegawai[i][4]);
+                System.out.println("Alamat: " + dataPegawai[i][5]);
+                System.out.println("Telepon: " + dataPegawai[i][6]);
+
+                System.out.print("Apakah Anda yakin ingin menghapus data pegawai ini? (Y/N): ");
+                String konfirmasi = input.nextLine();
+                if (konfirmasi.toLowerCase().equals("y")) {
+                    for (int j = i; j < jumlahPegawai - 1; j++) {
+                        dataPegawai[j][0] = dataPegawai[j + 1][0];
+                        dataPegawai[j][1] = dataPegawai[j + 1][1];
+                        dataPegawai[j][2] = dataPegawai[j + 1][2];
+                        dataPegawai[j][3] = dataPegawai[j + 1][3];
+                        dataPegawai[j][4] = dataPegawai[j + 1][4];
+                        dataPegawai[j][5] = dataPegawai[j + 1][5];
+                        dataPegawai[j][6] = dataPegawai[j + 1][6];
+                    }
+                    jumlahPegawai--;
+                    System.out.println("Data pegawai berhasil dihapus.");
+                } else {
+                    System.out.println("Data pegawai tidak dihapus.");
+                }
+                foundIndex = i;
+                break;
+            }
+        }
+        
+        menuManajemen();
+
+        if (foundIndex == -1) {
+            System.out.println("Data pegawai dengan nama " + namaHapus + " tidak ditemukan.");
+            menuManajemen();
+        }
+    
     }
 
     static void namaCari() {
