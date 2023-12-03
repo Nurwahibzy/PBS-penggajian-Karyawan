@@ -11,6 +11,9 @@ public class projekBeta2 {
                                                         // email, alamat, noTelp, jabatan )
     static double[][] jadwalGaji = new double[100][4]; // 100 pegawai, 4 atribut(gaji pokok, bonus, potongan, total gaji)
     static LocalDate[] tanggalPembayaran;
+    static int[] jumlahHariCuti;
+    static boolean[] statusPersetujuan;
+    static int jumlahPermintaan = 0;
     
     // Menginisialisasi absen
     static String[][] absen = new String[100][7];
@@ -105,10 +108,10 @@ public class projekBeta2 {
                 menuPenyusunanJadwal();
                 break;
             case 3:
-
+                menuLacakKehadiran();
                 break;
             case 4:
-                login();
+                menuCuti();
                 break;
             case 5:
 
@@ -134,7 +137,7 @@ public class projekBeta2 {
         input.nextLine();
         switch (menuPegawai) {
             case 1:
-
+            
                 break;
             case 2:
             inputKehadiran();
@@ -161,7 +164,7 @@ public class projekBeta2 {
         input.nextLine();
         switch (menuManajer) {
             case 1:
-                // menu tampilan data pegawai
+                lihatDetailPegawai();
                 break;
             case 2:
                 cetakAbsensiKaryawan();
@@ -498,6 +501,137 @@ public class projekBeta2 {
         menuAdmin();
 
     }
+
+    static void menuLacakKehadiran() {
+        System.out.print("Masukkan jumlah pegawai: ");
+        int jumlahPegawai = input.nextInt();
+        input.nextLine(); // Membersihkan newline
+        
+        int[] jamKerja = new int[jumlahPegawai];
+        // Mengisi data kehadiran dan jam kerja setiap pegawai
+        for (int i = 0; i < jumlahPegawai; i++) {
+        System.out.println("Masukkan data untuk Pegawai " + (i + 1) + ":");
+        System.out.print("Nama Pegawai: ");
+        dataPegawai[i][0] = input.nextLine();
+        System.out.print("Jam Kerja: ");
+        jamKerja[i] = input.nextInt();
+        // Membersihkan newline setelah input angka
+        input.nextLine();
+        }
+
+        // Menampilkan data kehadiran dan jam kerja setiap pegawai
+        System.out.println("\nData Kehadiran dan Jam Kerja Pegawai:");
+        for (int i = 0; i < jumlahPegawai; i++) {
+        System.out.println("Pegawai " + (i + 1) + ":");
+        System.out.println("Nama: " + dataPegawai[i][0]);
+        System.out.println("Jam Kerja: " + jamKerja[i] + " jam");
+        System.out.println("-----------------------------");
+        }
+
+        // Menghitung total jam kerja seluruh karyawan
+        int totalJamKerja = 0;
+        for (int jam : jamKerja) {
+            totalJamKerja += jam;
+        }
+
+        System.out.println("\nTotal Jam Kerja Seluruh Karyawan: " + totalJamKerja + " jam");
+
+        // Menentukan karyawan dengan jam kerja terbanyak
+        int maxJamKerja = -1;
+        int indexPegawaiMaxJam = -1;
+
+        for (int i = 0; i < jumlahPegawai; i++) {
+            if (jamKerja[i] > maxJamKerja) {
+                maxJamKerja = jamKerja[i];
+                indexPegawaiMaxJam = i;
+                }
+            }
+
+            System.out.println("Pegawai dengan Jam Kerja Terbanyak: " + dataPegawai[indexPegawaiMaxJam][0]);
+            menuAdmin();
+
+    }
+
+    static void menuCuti() {
+        int pilihanMenuCuti;
+        while (true) {
+            System.out.println("=== MENU PERMINTAAN dan PERSETUJUAN CUTI ===");
+            System.out.println("1. Proses Permintaan Cuti");
+            System.out.println("2. Lihat Permintaan Cuti");
+            System.out.println("3. Persetujuan Cuti");
+            System.out.println("4. Keluar");
+            System.out.print("Pilih menu (1/2/3/4): ");
+
+            pilihanMenuCuti = input.nextInt();
+
+            switch (pilihanMenuCuti) {
+                case 1:
+                    prosesPermintaanCuti();
+                    break;
+                case 2:
+                    lihatPermintaanCuti();
+                    break;
+                case 3:
+                    persetujuanCuti();
+                    break;
+                case 4:
+                    menuAdmin();
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
+                    menuAdmin();
+            }
+        }
+    }
+
+    static void lihatPermintaanCuti() {
+        System.out.println("\n=== STATUS AKHIR PERMINTAAN CUTI ===");
+        for (int i = 0; i < jumlahPermintaan; i++) {
+            System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
+            System.out.println("Jumlah Hari Cuti: " + jumlahHariCuti[i]);
+            System.out.println("Status Persetujuan: " + (statusPersetujuan[i] ? "Disetujui" : "Belum Disetujui"));
+            System.out.println("-----------------------------");
+        }
+    }
+
+    static void prosesPermintaanCuti() {
+        System.out.print("Masukkan Jumlah Pegawai: ");
+        int jumlahPegawai = input.nextInt();
+        jumlahPermintaan = jumlahPegawai; // Simpan jumlah permintaan
+
+        // Inisialisasi array sesuai dengan jumlah pegawai
+        dataPegawai = new String[jumlahPegawai][1];
+        jumlahHariCuti = new int[jumlahPegawai];
+        statusPersetujuan = new boolean[jumlahPegawai];
+
+        for (int i = 0; i < jumlahPegawai; i++) {
+            System.out.print("Masukkan nama pegawai ke-" + (i + 1) + ": ");
+            input.nextLine(); // Membersihkan buffer
+            dataPegawai[i][0] = input.nextLine();
+
+            System.out.print("Masukkan jumlah hari cuti yang diminta oleh " + dataPegawai[i][0] + ": ");
+            jumlahHariCuti[i] = input.nextInt();
+        }
+    }
+
+    static void persetujuanCuti() {
+        // Menampilkan informasi permintaan cuti dari setiap pegawai
+        for (int i = 0; i < jumlahPermintaan; i++) {
+            System.out.println("Permintaan cuti dari " + dataPegawai[i][0] + " sebanyak " + jumlahHariCuti[i] + " hari.");
+
+            // Admin memutuskan untuk menyetujui atau menolak permintaan cuti
+            System.out.print("Admin: Setujui permintaan cuti? (ya/tidak): ");
+            String jawabanAdmin = input.next();
+
+            statusPersetujuan[i] = jawabanAdmin.equalsIgnoreCase("ya");
+
+            if (statusPersetujuan[i]) {
+                System.out.println("Permintaan cuti disetujui!");
+            } else {
+                System.out.println("Permintaan cuti ditolak.");
+            }
+        }
+    }
+
 
     static void cetakAbsensiKaryawan() {
         System.out.println("\n Daftar Absensi karyawan: \n");
