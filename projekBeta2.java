@@ -1,13 +1,17 @@
 
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class projekBeta2 {
 
     static Scanner input = new Scanner(System.in);
     static String[] username = { "admin1", "pegawai2", "manajer3" };
     static String[] password = { "adminpassword1", "pegawaipassword2", "manajerpassword3" };
-    static String[][] dataPegawai = new String[100][7]; // 100 pegawai, 7 atribut(nama, jenisKelamin,ttl, kebangsaan,
-                                                        // email, alamat, noTelp, )
+    static String[][] dataPegawai = new String[100][8]; // 100 pegawai, 8 atribut(nama, jenisKelamin,ttl, kebangsaan,
+                                                        // email, alamat, noTelp, jabatan )
+    static double[][] jadwalGaji = new double[100][4]; // 100 pegawai, 4 atribut(gaji pokok, bonus, potongan, total gaji)
+    static LocalDate[] tanggalPembayaran;
+    
     // Menginisialisasi absen
     static String[][] absen = new String[100][7];
     // Mendeklarasikan nama-nama hari
@@ -98,7 +102,7 @@ public class projekBeta2 {
                 menuManajemen();
                 break;
             case 2:
-                 
+                menuPenyusunanJadwal();
                 break;
             case 3:
 
@@ -441,12 +445,57 @@ public class projekBeta2 {
                 break;
             }
         }
-        menuManajemen(); // kembali ke menu manajer
+        menuManajemen(); // kembali ke menu manajemen
 
         if (!ditemukanCari) {
             System.out.println("Data pegawai dengan nama " + namaCari + " tidak ditemukan.");
             menuManajemen();
         }
+
+    }
+
+    static void menuPenyusunanJadwal() {
+        tanggalPembayaran = new LocalDate[jumlahPegawai];
+        System.out.print("\nMasukkan Jumlah Pegawai: ");
+        jumlahPegawai = input.nextInt();
+        input.nextLine();
+        
+        // Mengisi jadwal gaji setiap pegawai
+        for (int i = 0; i < jumlahPegawai; i++) {
+        System.out.println("Masukkan data untuk Pegawai " + (i + 1) + ":");
+        System.out.print("Nama Pegawai: ");
+        dataPegawai[i][0] = input.nextLine();
+        System.out.print("Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
+        dataPegawai[i][7] = input.nextLine();
+        System.out.print("Tanggal Pembayaran Gaji (YYYY-MM-DD): ");
+        String tanggalPembayaranStr = input.nextLine();
+        tanggalPembayaran[i] = LocalDate.parse(tanggalPembayaranStr);
+                            
+        System.out.println("Masukkan jadwal gaji untuk Pegawai " + (i + 1) + ":");
+        System.out.print("Gaji Pokok: ");
+        jadwalGaji[i][0] = input.nextDouble();
+        System.out.print("Bonus: ");
+        jadwalGaji[i][1] = input.nextDouble();
+        System.out.print("Potongan: ");
+        jadwalGaji[i][2] = input.nextDouble();
+        jadwalGaji[i][3] = jadwalGaji[i][0] + jadwalGaji[i][1] - jadwalGaji[i][2]; // Total gaji disimpan di kolom ke-4
+        }
+                            
+        // Menampilkan jadwal gaji setiap pegawai
+        System.out.println("\nJadwal Pembayaran Gaji:");
+        for (int i = 0; i < jumlahPegawai; i++) {
+        System.out.println("Pegawai " + (i + 1) + ":");
+        System.out.println("Nama: " + dataPegawai[i][0]);
+        System.out.println("Jabatan: " + dataPegawai[i][7]);
+        System.out.println("Tanggal Pembayaran: " + tanggalPembayaran[i]);
+        System.out.println("Gaji Pokok: " + jadwalGaji[i][0]);
+        System.out.println("Bonus: " + jadwalGaji[i][1]);
+        System.out.println("Potongan: " + jadwalGaji[i][2]);
+        System.out.println("Total Gaji: " + jadwalGaji[i][3]);
+        System.out.println("-----------------------------");
+        }
+        input.nextLine();
+        menuAdmin();
 
     }
 

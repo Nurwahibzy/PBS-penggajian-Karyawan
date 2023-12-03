@@ -335,8 +335,7 @@ public class projekBeta1 {
                                                     System.out.println("Alamat: " + alamatPegawai[i]);
                                                     System.out.println("Telepon: " + teleponPegawai[i]);
 
-                                                    System.out.print(
-                                                            "Apakah Anda yakin ingin menghapus data pegawai ini? (Y/N): ");
+                                                    System.out.print("Apakah Anda yakin ingin menghapus data pegawai ini? (Y/N): ");
                                                     String konfirmasi = input.nextLine();
                                                     if (konfirmasi.equalsIgnoreCase("Y")) {
                                                         for (int j = i; j < jumlahPegawai - 1; j++) {
