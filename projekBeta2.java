@@ -28,7 +28,7 @@ public class projekBeta2 {
 
             int sisaKesempatan = 3 - kesempatanLogin;// menghitung sisa kesempatan login
 
-            System.out.println("====================================");
+            System.out.println("\n====================================");
             System.out.println("     Sistem Penggajian Restoran     ");
             System.out.println("====================================");
             System.out.print("Masukkan username: ");
@@ -201,7 +201,7 @@ public class projekBeta2 {
                 namaCari();
                 break;
             case 5:
-
+                lihatDetailPegawai();
                 break;
             case 6:
                 menuAdmin();
@@ -348,7 +348,7 @@ public class projekBeta2 {
     static void hapusPegawai() {
         System.out.print("Masukkan Nama Pegawai yang akan dihapus: ");
         String namaHapus = input.nextLine();
-        int foundIndex = -1;
+        boolean ditemukanHapus = false;
 
         for (int i = 0; i < jumlahPegawai; i++) {
             if (dataPegawai[i][0].equalsIgnoreCase(namaHapus)) {
@@ -379,18 +379,44 @@ public class projekBeta2 {
                 } else {
                     System.out.println("Data pegawai tidak dihapus.");
                 }
-                foundIndex = i;
+                ditemukanHapus = true;
                 break;
             }
         }
         
         menuManajemen();
 
-        if (foundIndex == -1) {
+        if (!ditemukanHapus) {
             System.out.println("Data pegawai dengan nama " + namaHapus + " tidak ditemukan.");
             menuManajemen();
         }
     
+    }
+
+    static void lihatDetailPegawai() {
+        System.out.println("Pilih nomor pegawai untuk melihat detail:");
+        for (int i = 0; i < jumlahPegawai; i++) {
+            System.out.println((i + 1) + ". " + dataPegawai[i][0]);
+        }
+
+        System.out.print("Masukkan nomor pegawai: ");
+        int pilihan = input.nextInt();
+
+        if (pilihan > 0 && pilihan <= jumlahPegawai) {
+        int i = pilihan - 1;
+        System.out.println("Detail Pegawai:");
+        System.out.println("Nama: " + dataPegawai[i][0]);
+        System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
+        System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
+        System.out.println("Kebangsaan: " + dataPegawai[i][3]);
+        System.out.println("Email: " + dataPegawai[i][3]);
+        System.out.println("Alamat: " + dataPegawai[i][4]);
+        System.out.println("Telepon: " + dataPegawai[i][5]);
+        } else {
+        System.out.println("Nomor pegawai tidak valid.");
+        }
+        
+        menuManajemen();
     }
 
     static void namaCari() {
@@ -415,11 +441,11 @@ public class projekBeta2 {
                 break;
             }
         }
-        menuManajer(); // kembali ke menu manajer
+        menuManajemen(); // kembali ke menu manajer
 
         if (!ditemukanCari) {
             System.out.println("Data pegawai dengan nama " + namaCari + " tidak ditemukan.");
-            menuManajer();
+            menuManajemen();
         }
 
     }
