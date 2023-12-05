@@ -147,8 +147,9 @@ public class projekBeta2 {
                 for (int i = 0; i < jumlahPegawai; i++) {
                     System.out.println((i + 1) + ". " + dataPegawai[i][0]);
                 }
-                System.out.println("Masukkan nomor pegawai");
+                System.out.println("Masukkan nomor pegawai : ");
                 nomorSlip = input.nextInt();
+                input.nextLine();
                 cetakSlip(nomorSlip);
                 break;
             case 2:
@@ -770,6 +771,7 @@ public class projekBeta2 {
     }
 
     static void cetakSlip(int a) {
+        a--;// mencari data dengan indeks yang sesuai
         int gajiPokok, bonus, total;
         switch (dataPegawai[a][1]) {
             case "Koki":
@@ -779,7 +781,7 @@ public class projekBeta2 {
                 gajiPokok = 2500000;
                 break;
             case "Pramusaji":
-                gajiPokok = 200000;
+                gajiPokok = 2000000;
                 break;
             default:
                 gajiPokok = 0; // Atur nilai default jika golongan tidak dikenali
@@ -788,7 +790,7 @@ public class projekBeta2 {
 
         // Konversi string ke tipe data numerik
         int usia = Integer.parseInt(dataPegawai[a][2]);
-        int lamaBekerja = Integer.parseInt(dataPegawai[a][2]);
+        int lamaBekerja = Integer.parseInt(dataPegawai[a][3]);
         int biayaBpjs = 30000;
         if (usia > 50 && lamaBekerja > 5) {
             bonus = 700000;
@@ -804,6 +806,8 @@ public class projekBeta2 {
         System.out.println("Biaya BPJS  : " + biayaBpjs);
         System.out.println("-----------------------");
         System.out.println("Total       : " + total);
+        System.out.println();
+        menuPegawai();
     }
 
 }
