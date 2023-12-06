@@ -7,9 +7,11 @@ public class projekBeta2 {
     static Scanner input = new Scanner(System.in);
     static String[] username = { "admin1", "pegawai2", "manajer3" };
     static String[] password = { "adminpassword1", "pegawaipassword2", "manajerpassword3" };
-    static String[][] dataPegawai = new String[100][8]; // 100 pegawai, 8 atribut(nama, jenisKelamin,ttl, kebangsaan,
-                                                        // email, alamat, noTelp, jabatan )
-    static double[][] jadwalGaji = new double[100][4]; // 100 pegawai, 4 atribut(gaji pokok, bonus, potongan, total gaji)
+    static String[][] dataPegawai = new String[100][10]; // 100 pegawai, 8 atribut(nama,jabatan, Usia, lama bekerja,
+                                                         // jenisKelamin,ttl, kebangsaan,
+                                                         // email, alamat, noTelp )
+    static double[][] jadwalGaji = new double[100][4]; // 100 pegawai, 4 atribut(gaji pokok, bonus, potongan, total
+                                                       // gaji)
     static int[][] kinerjaPegawai = new int[100][3]; // 100 pegawai, 3 atribut(baik, cukup, perlu perbaikan)
     static int totalKehadiran = 0, totalTidakHadir = 0;
     static LocalDate[] tanggalPembayaran;
@@ -17,9 +19,10 @@ public class projekBeta2 {
     static boolean[] statusPersetujuan;
     static int jumlahPermintaan = 0;
     static double totalPengeluaranGaji = 0;
-    
+    static int nomorSlip;
+
     // Menginisialisasi absen
-    static String[][] absen = new String[100][7];
+    static String[][] absen = new String[100][6];
     // Mendeklarasikan nama-nama hari
     static String namaHari[] = { "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu" };
 
@@ -132,7 +135,7 @@ public class projekBeta2 {
 
     static void menuPegawai() {
         System.out.println("===BERIKUT PILIHAN MENU PEGAWAI===");
-        System.out.println("1. Input data");
+        System.out.println("1. Cetak Slip Gaji");
         System.out.println("2. Input kehadiran");
         System.out.println("3. Log Out");
         System.out.print("Silahkan Pilih Menu Diatas (1/2/3): ");
@@ -140,13 +143,20 @@ public class projekBeta2 {
         input.nextLine();
         switch (menuPegawai) {
             case 1:
-            
+                System.out.println("daftar pegawai:");
+                for (int i = 0; i < jumlahPegawai; i++) {
+                    System.out.println((i + 1) + ". " + dataPegawai[i][0]);
+                }
+                System.out.println("Masukkan nomor pegawai : ");
+                nomorSlip = input.nextInt();
+                input.nextLine();
+                cetakSlip(nomorSlip);
                 break;
             case 2:
-            inputKehadiran();
+                inputKehadiran();
                 break;
             case 3:
-            login();
+                login();
                 break;
             default:
                 System.out.println("Input salah");
@@ -167,7 +177,7 @@ public class projekBeta2 {
         input.nextLine();
         switch (menuManajer) {
             case 1:
-                lihatDetailPegawai();
+                lihatDetailPegawai(2);
                 break;
             case 2:
                 cetakAbsensiKaryawan();
@@ -211,7 +221,7 @@ public class projekBeta2 {
                 namaCari();
                 break;
             case 5:
-                lihatDetailPegawai();
+                lihatDetailPegawai(1);
                 break;
             case 6:
                 menuAdmin();
@@ -236,38 +246,50 @@ public class projekBeta2 {
             System.out.print("Masukkan Nama Pegawai: ");
             dataPegawai[i][0] = input.nextLine();
 
-            System.out.print("Masukkan Jenis Kelamin Pegawai: ");
+            System.out.print("Masukkan Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
             dataPegawai[i][1] = input.nextLine();
 
-            System.out.print("Masukkan Tempat dan Tanggal Lahir Pegawai: ");
+            System.out.print("Masukkan Usia Pegawai: ");
             dataPegawai[i][2] = input.nextLine();
 
-            System.out.print("Masukkan Kebangsaan Pegawai: ");
+            System.out.print("Masukkan Lama Bekerja Pegawai: ");
             dataPegawai[i][3] = input.nextLine();
 
-            System.out.print("Masukkan Alamat Email Pegawai: ");
+            System.out.print("Masukkan Jenis Kelamin Pegawai: ");
             dataPegawai[i][4] = input.nextLine();
 
-            System.out.print("Masukkan Alamat Pegawai: ");
+            System.out.print("Masukkan Tempat dan Tanggal Lahir Pegawai: ");
             dataPegawai[i][5] = input.nextLine();
 
-            System.out.print("Masukkan Nomor Telepon Pegawai: ");
+            System.out.print("Masukkan Kebangsaan Pegawai: ");
             dataPegawai[i][6] = input.nextLine();
+
+            System.out.print("Masukkan Alamat Email Pegawai: ");
+            dataPegawai[i][7] = input.nextLine();
+
+            System.out.print("Masukkan Alamat Pegawai: ");
+            dataPegawai[i][8] = input.nextLine();
+
+            System.out.print("Masukkan Nomor Telepon Pegawai: ");
+            dataPegawai[i][9] = input.nextLine();
         }
 
         System.out.println("\nDATA PEGAWAI YANG TELAH DI INPUT:");
         for (int i = 0; i < jumlahPegawai; i++) {
             System.out.println("Pegawai ke-" + (i + 1));
-            System.out.println("Nama: " + dataPegawai[i][0]);
-            System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-            System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-            System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-            System.out.println("Email: " + dataPegawai[i][4]);
-            System.out.println("Alamat: " + dataPegawai[i][5]);
-            System.out.println("Telepon: " + dataPegawai[i][6]);
+            System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
+            System.out.println("Jabatan Pegawai: " + dataPegawai[i][1]);
+            System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
+            System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
+            System.out.println("Jenis Kelamin: " + dataPegawai[i][4]);
+            System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][5]);
+            System.out.println("Kebangsaan: " + dataPegawai[i][6]);
+            System.out.println("Email: " + dataPegawai[i][7]);
+            System.out.println("Alamat: " + dataPegawai[i][8]);
+            System.out.println("Telepon: " + dataPegawai[i][9]);
             System.out.println("-----------------------------");
         }
-    
+
         menuManajemen();
     }
 
@@ -275,84 +297,84 @@ public class projekBeta2 {
         System.out.print("Masukkan Nama Pegawai yang akan diubah: ");
         String namaUbah = input.nextLine();
         boolean ditemukanUbah = false;
-                                        
+
         for (int i = 0; i < jumlahPegawai; i++) {
-        if (dataPegawai[i][0].equalsIgnoreCase(namaUbah)) {
-        System.out.println("Data ditemukan!");
-        System.out.println("Pegawai ke-" + (i + 1));
-        System.out.println("Nama: " + dataPegawai[i][0]);
-        System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-        System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-        System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-        System.out.println("Email: " + dataPegawai[i][4]);
-        System.out.println("Alamat: " + dataPegawai[i][5]);
-        System.out.println("Telepon: " + dataPegawai[i][6]);
-                                        
-        System.out.println("\nPILIH DATA PEGAWAI YANG AKAN DIUBAH:");
-        System.out.println("1. Nama");
-        System.out.println("2. Jenis Kelamin");
-        System.out.println("3. Tempat dan Tanggal Lahir");
-        System.out.println("4. Kebangsaan");
-        System.out.println("5. Email");
-        System.out.println("6. Alamat");
-        System.out.println("7. Nomor Telepon");
-        System.out.print("Masukkan nomor pilihan: ");
-        int pilihanUbah = input.nextInt();
-        input.nextLine(); // Menangani newline setelah nextInt()
-                                        
-        switch (pilihanUbah) {
-        case 1:
-            System.out.print("Masukkan Nama Pegawai: ");
-            dataPegawai[i][0] = input.nextLine();
-            break;
-        case 2:
-            System.out.print("Masukkan Jenis Kelamin Pegawai: ");
-            dataPegawai[i][1] = input.nextLine();
-            break;
-        case 3:
-            System.out.print("Masukkan Tempat dan Tanggal Lahir Pegawai: ");
-            dataPegawai[i][2] = input.nextLine();
-            break;
-        case 4:
-            System.out.print("Masukkan Kebangsaan Pegawai: ");
-            dataPegawai[i][3] = input.nextLine();
-            break;
-        case 5:
-            System.out.print("Masukkan Alamat Email Pegawai: ");
-            dataPegawai[i][4] = input.nextLine();
-            break;
-        case 6:
-            System.out.print("Masukkan Alamat Pegawai: ");
-            dataPegawai[i][5] = input.nextLine();
-            break;
-        case 7:
-            System.out.print("Masukkan Nomor Telepon Pegawai: ");
-            dataPegawai[i][6] = input.nextLine();
-            break;
-        default:
-            System.out.println("Pilihan tidak valid.");
+            if (dataPegawai[i][0].equalsIgnoreCase(namaUbah)) {
+                System.out.println("Data ditemukan!");
+                System.out.println("Pegawai ke-" + (i + 1));
+                System.out.println("Nama: " + dataPegawai[i][0]);
+                System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
+                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
+                System.out.println("Kebangsaan: " + dataPegawai[i][3]);
+                System.out.println("Email: " + dataPegawai[i][4]);
+                System.out.println("Alamat: " + dataPegawai[i][5]);
+                System.out.println("Telepon: " + dataPegawai[i][6]);
+
+                System.out.println("\nPILIH DATA PEGAWAI YANG AKAN DIUBAH:");
+                System.out.println("1. Nama");
+                System.out.println("2. Jenis Kelamin");
+                System.out.println("3. Tempat dan Tanggal Lahir");
+                System.out.println("4. Kebangsaan");
+                System.out.println("5. Email");
+                System.out.println("6. Alamat");
+                System.out.println("7. Nomor Telepon");
+                System.out.print("Masukkan nomor pilihan: ");
+                int pilihanUbah = input.nextInt();
+                input.nextLine(); // Menangani newline setelah nextInt()
+
+                switch (pilihanUbah) {
+                    case 1:
+                        System.out.print("Masukkan Nama Pegawai: ");
+                        dataPegawai[i][0] = input.nextLine();
+                        break;
+                    case 2:
+                        System.out.print("Masukkan Jenis Kelamin Pegawai: ");
+                        dataPegawai[i][1] = input.nextLine();
+                        break;
+                    case 3:
+                        System.out.print("Masukkan Tempat dan Tanggal Lahir Pegawai: ");
+                        dataPegawai[i][2] = input.nextLine();
+                        break;
+                    case 4:
+                        System.out.print("Masukkan Kebangsaan Pegawai: ");
+                        dataPegawai[i][3] = input.nextLine();
+                        break;
+                    case 5:
+                        System.out.print("Masukkan Alamat Email Pegawai: ");
+                        dataPegawai[i][4] = input.nextLine();
+                        break;
+                    case 6:
+                        System.out.print("Masukkan Alamat Pegawai: ");
+                        dataPegawai[i][5] = input.nextLine();
+                        break;
+                    case 7:
+                        System.out.print("Masukkan Nomor Telepon Pegawai: ");
+                        dataPegawai[i][6] = input.nextLine();
+                        break;
+                    default:
+                        System.out.println("Pilihan tidak valid.");
+                }
+
+                System.out.println("\nDATA PEGAWAI YANG TELAH DIUBAH:");
+                System.out.println("Pegawai ke-" + (i + 1));
+                System.out.println("Nama: " + dataPegawai[i][0]);
+                System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
+                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
+                System.out.println("Kebangsaan: " + dataPegawai[i][3]);
+                System.out.println("Email: " + dataPegawai[i][4]);
+                System.out.println("Alamat: " + dataPegawai[i][5]);
+                System.out.println("Telepon: " + dataPegawai[i][6]);
+                ditemukanUbah = true;
+                break;
+            }
         }
-                                        
-        System.out.println("\nDATA PEGAWAI YANG TELAH DIUBAH:");
-        System.out.println("Pegawai ke-" + (i + 1));
-        System.out.println("Nama: " + dataPegawai[i][0]);
-        System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-        System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-        System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-        System.out.println("Email: " + dataPegawai[i][4]);
-        System.out.println("Alamat: " + dataPegawai[i][5]);
-        System.out.println("Telepon: " + dataPegawai[i][6]);
-        ditemukanUbah = true;
-        break;
-        }
-    }
         menuManajemen();
-                                        
+
         if (!ditemukanUbah) {
-        System.out.println("Data pegawai dengan nama " + namaUbah + " tidak ditemukan.");
-        menuManajemen();
+            System.out.println("Data pegawai dengan nama " + namaUbah + " tidak ditemukan.");
+            menuManajemen();
         }
-                                                              
+
     }
 
     static void hapusPegawai() {
@@ -393,17 +415,17 @@ public class projekBeta2 {
                 break;
             }
         }
-        
+
         menuManajemen();
 
         if (!ditemukanHapus) {
             System.out.println("Data pegawai dengan nama " + namaHapus + " tidak ditemukan.");
             menuManajemen();
         }
-    
+
     }
 
-    static void lihatDetailPegawai() {
+    static void lihatDetailPegawai(int a) {
         System.out.println("Pilih nomor pegawai untuk melihat detail:");
         for (int i = 0; i < jumlahPegawai; i++) {
             System.out.println((i + 1) + ". " + dataPegawai[i][0]);
@@ -411,22 +433,30 @@ public class projekBeta2 {
 
         System.out.print("Masukkan nomor pegawai: ");
         int pilihan = input.nextInt();
+        System.out.println();
 
         if (pilihan > 0 && pilihan <= jumlahPegawai) {
-        int i = pilihan - 1;
-        System.out.println("Detail Pegawai:");
-        System.out.println("Nama: " + dataPegawai[i][0]);
-        System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-        System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-        System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-        System.out.println("Email: " + dataPegawai[i][3]);
-        System.out.println("Alamat: " + dataPegawai[i][4]);
-        System.out.println("Telepon: " + dataPegawai[i][5]);
+            int i = pilihan - 1;
+            System.out.println("Detail Pegawai:");
+            System.out.println("Nama                    : " + dataPegawai[i][0]);
+            System.out.println("Jabatan                 : " + dataPegawai[i][1]);
+            System.out.println("Usia                    : " + dataPegawai[i][2]);
+            System.out.println("Lama Bekerja            : " + dataPegawai[i][3]);
+            System.out.println("Jenis Kelamin           : " + dataPegawai[i][4]);
+            System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][5]);
+            System.out.println("Kebangsaan              : " + dataPegawai[i][6]);
+            System.out.println("Email                   : " + dataPegawai[i][7]);
+            System.out.println("Alamat                  : " + dataPegawai[i][8]);
+            System.out.println("Telepon                 : " + dataPegawai[i][9]);
         } else {
-        System.out.println("Nomor pegawai tidak valid.");
+            System.out.println("Nomor pegawai tidak valid.");
         }
-        
-        menuManajemen();
+        // mengecek akan kembali ke menu mana(admin/manajer)
+        if (a == 1) {
+            menuManajemen();
+        } else {
+            menuManajer();
+        }
     }
 
     static void namaCari() {
@@ -439,13 +469,16 @@ public class projekBeta2 {
                 System.out.println("=====================================");
                 System.out.println("Data ditemukan!");
                 System.out.println("Pegawai ke-" + (i + 1));
-                System.out.println("Nama: " + dataPegawai[i][0]);
-                System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-                System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-                System.out.println("Email: " + dataPegawai[i][4]);
-                System.out.println("Alamat: " + dataPegawai[i][5]);
-                System.out.println("Telepon: " + dataPegawai[i][6]);
+                System.out.println("Nama                    : " + dataPegawai[i][0]);
+                System.out.println("Jabatan                 : " + dataPegawai[i][1]);
+                System.out.println("Usia                    : " + dataPegawai[i][2]);
+                System.out.println("Lama Bekerja            : " + dataPegawai[i][3]);
+                System.out.println("Jenis Kelamin           : " + dataPegawai[i][4]);
+                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][5]);
+                System.out.println("Kebangsaan              : " + dataPegawai[i][6]);
+                System.out.println("Email                   : " + dataPegawai[i][7]);
+                System.out.println("Alamat                  : " + dataPegawai[i][8]);
+                System.out.println("Telepon                 : " + dataPegawai[i][9]);
                 System.out.println("=====================================");
                 ditemukanCari = true;
                 break;
@@ -465,40 +498,41 @@ public class projekBeta2 {
         System.out.print("\nMasukkan Jumlah Pegawai: ");
         jumlahPegawai = input.nextInt();
         input.nextLine();
-        
+
         // Mengisi jadwal gaji setiap pegawai
         for (int i = 0; i < jumlahPegawai; i++) {
-        System.out.println("Masukkan data untuk Pegawai " + (i + 1) + ":");
-        System.out.print("Nama Pegawai: ");
-        dataPegawai[i][0] = input.nextLine();
-        System.out.print("Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
-        dataPegawai[i][7] = input.nextLine();
-        System.out.print("Tanggal Pembayaran Gaji (YYYY-MM-DD): ");
-        String tanggalPembayaranStr = input.nextLine();
-        tanggalPembayaran[i] = LocalDate.parse(tanggalPembayaranStr);
-                            
-        System.out.println("Masukkan jadwal gaji untuk Pegawai " + (i + 1) + ":");
-        System.out.print("Gaji Pokok: ");
-        jadwalGaji[i][0] = input.nextDouble();
-        System.out.print("Bonus: ");
-        jadwalGaji[i][1] = input.nextDouble();
-        System.out.print("Potongan: ");
-        jadwalGaji[i][2] = input.nextDouble();
-        jadwalGaji[i][3] = jadwalGaji[i][0] + jadwalGaji[i][1] - jadwalGaji[i][2]; // Total gaji disimpan di kolom ke-4
+            System.out.println("Masukkan data untuk Pegawai " + (i + 1) + ":");
+            System.out.print("Nama Pegawai: ");
+            dataPegawai[i][0] = input.nextLine();
+            System.out.print("Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
+            dataPegawai[i][7] = input.nextLine();
+            System.out.print("Tanggal Pembayaran Gaji (YYYY-MM-DD): ");
+            String tanggalPembayaranStr = input.nextLine();
+            tanggalPembayaran[i] = LocalDate.parse(tanggalPembayaranStr);
+
+            System.out.println("Masukkan jadwal gaji untuk Pegawai " + (i + 1) + ":");
+            System.out.print("Gaji Pokok: ");
+            jadwalGaji[i][0] = input.nextDouble();
+            System.out.print("Bonus: ");
+            jadwalGaji[i][1] = input.nextDouble();
+            System.out.print("Potongan: ");
+            jadwalGaji[i][2] = input.nextDouble();
+            jadwalGaji[i][3] = jadwalGaji[i][0] + jadwalGaji[i][1] - jadwalGaji[i][2]; // Total gaji disimpan di kolom
+                                                                                       // ke-4
         }
-                            
+
         // Menampilkan jadwal gaji setiap pegawai
         System.out.println("\nJadwal Pembayaran Gaji:");
         for (int i = 0; i < jumlahPegawai; i++) {
-        System.out.println("Pegawai " + (i + 1) + ":");
-        System.out.println("Nama: " + dataPegawai[i][0]);
-        System.out.println("Jabatan: " + dataPegawai[i][7]);
-        System.out.println("Tanggal Pembayaran: " + tanggalPembayaran[i]);
-        System.out.println("Gaji Pokok: " + jadwalGaji[i][0]);
-        System.out.println("Bonus: " + jadwalGaji[i][1]);
-        System.out.println("Potongan: " + jadwalGaji[i][2]);
-        System.out.println("Total Gaji: " + jadwalGaji[i][3]);
-        System.out.println("-----------------------------");
+            System.out.println("Pegawai " + (i + 1) + ":");
+            System.out.println("Nama: " + dataPegawai[i][0]);
+            System.out.println("Jabatan: " + dataPegawai[i][7]);
+            System.out.println("Tanggal Pembayaran: " + tanggalPembayaran[i]);
+            System.out.println("Gaji Pokok: " + jadwalGaji[i][0]);
+            System.out.println("Bonus: " + jadwalGaji[i][1]);
+            System.out.println("Potongan: " + jadwalGaji[i][2]);
+            System.out.println("Total Gaji: " + jadwalGaji[i][3]);
+            System.out.println("-----------------------------");
         }
         input.nextLine();
         menuAdmin();
@@ -509,26 +543,26 @@ public class projekBeta2 {
         System.out.print("Masukkan jumlah pegawai: ");
         int jumlahPegawai = input.nextInt();
         input.nextLine(); // Membersihkan newline
-        
+
         int[] jamKerja = new int[jumlahPegawai];
         // Mengisi data kehadiran dan jam kerja setiap pegawai
         for (int i = 0; i < jumlahPegawai; i++) {
-        System.out.println("Masukkan data untuk Pegawai " + (i + 1) + ":");
-        System.out.print("Nama Pegawai: ");
-        dataPegawai[i][0] = input.nextLine();
-        System.out.print("Jam Kerja: ");
-        jamKerja[i] = input.nextInt();
-        // Membersihkan newline setelah input angka
-        input.nextLine();
+            System.out.println("Masukkan data untuk Pegawai " + (i + 1) + ":");
+            System.out.print("Nama Pegawai: ");
+            dataPegawai[i][0] = input.nextLine();
+            System.out.print("Jam Kerja: ");
+            jamKerja[i] = input.nextInt();
+            // Membersihkan newline setelah input angka
+            input.nextLine();
         }
 
         // Menampilkan data kehadiran dan jam kerja setiap pegawai
         System.out.println("\nData Kehadiran dan Jam Kerja Pegawai:");
         for (int i = 0; i < jumlahPegawai; i++) {
-        System.out.println("Pegawai " + (i + 1) + ":");
-        System.out.println("Nama: " + dataPegawai[i][0]);
-        System.out.println("Jam Kerja: " + jamKerja[i] + " jam");
-        System.out.println("-----------------------------");
+            System.out.println("Pegawai " + (i + 1) + ":");
+            System.out.println("Nama: " + dataPegawai[i][0]);
+            System.out.println("Jam Kerja: " + jamKerja[i] + " jam");
+            System.out.println("-----------------------------");
         }
 
         // Menghitung total jam kerja seluruh karyawan
@@ -547,11 +581,11 @@ public class projekBeta2 {
             if (jamKerja[i] > maxJamKerja) {
                 maxJamKerja = jamKerja[i];
                 indexPegawaiMaxJam = i;
-                }
             }
+        }
 
-            System.out.println("Pegawai dengan Jam Kerja Terbanyak: " + dataPegawai[indexPegawaiMaxJam][0]);
-            menuAdmin();
+        System.out.println("Pegawai dengan Jam Kerja Terbanyak: " + dataPegawai[indexPegawaiMaxJam][0]);
+        menuAdmin();
 
     }
 
@@ -619,7 +653,8 @@ public class projekBeta2 {
     static void persetujuanCuti() {
         // Menampilkan informasi permintaan cuti dari setiap pegawai
         for (int i = 0; i < jumlahPermintaan; i++) {
-            System.out.println("Permintaan cuti dari " + dataPegawai[i][0] + " sebanyak " + jumlahHariCuti[i] + " hari.");
+            System.out
+                    .println("Permintaan cuti dari " + dataPegawai[i][0] + " sebanyak " + jumlahHariCuti[i] + " hari.");
 
             // Admin memutuskan untuk menyetujui atau menolak permintaan cuti
             System.out.print("Admin: Setujui permintaan cuti? (ya/tidak): ");
@@ -639,7 +674,7 @@ public class projekBeta2 {
         // Input data gaji dan kinerja pegawai
         System.out.print("Masukkan jumlah pegawai: ");
         jumlahPegawai = input.nextInt();
-    
+
         for (int i = 0; i < jumlahPegawai; i++) {
             System.out.println("\nData Pegawai " + (i + 1) + ":");
             input.nextLine();
@@ -650,10 +685,10 @@ public class projekBeta2 {
             System.out.print("Gaji Pegawai: ");
             jadwalGaji[i][3] = input.nextDouble();
             totalPengeluaranGaji += jadwalGaji[i][3];
-    
+
             System.out.print("Kinerja Pegawai (1. Baik / 2. Cukup / 3. Perlu Perbaikan): ");
             int kinerja = input.nextInt();
-    
+
             switch (kinerja) {
                 case 1:
                     kinerjaPegawai[i][0]++;
@@ -670,18 +705,18 @@ public class projekBeta2 {
                     break;
             }
         }
-    
+
         // Input data kehadiran
         System.out.print("\nMasukkan total kehadiran: ");
         totalKehadiran = input.nextInt();
         totalTidakHadir = jumlahPegawai * 26 - totalKehadiran;
-    
+
         // Menampilkan laporan
         System.out.println("\n=== Laporan Perusahaan ===");
         System.out.println("1. Pengeluaran Gaji");
         System.out.println("   Total Pengeluaran Gaji: Rp" + totalPengeluaranGaji);
         System.out.println("\n2. Kinerja Pegawai");
-    
+
         // Menampilkan data kinerja pegawai
         for (int i = 0; i < jumlahPegawai; i++) {
             System.out.println("   " + dataPegawai[i][0]);
@@ -689,14 +724,13 @@ public class projekBeta2 {
             System.out.println("      - Cukup Berkinerja: " + kinerjaPegawai[i][1]);
             System.out.println("      - Perlu Perbaikan: " + kinerjaPegawai[i][2]);
         }
-    
+
         System.out.println("\n3. Tren Kehadiran");
         System.out.println("   Total Kehadiran: " + totalKehadiran + " hari");
         System.out.println("   Total Tidak Hadir: " + totalTidakHadir + " hari");
-    
+
         menuAdmin();
     }
-    
 
     static void cetakAbsensiKaryawan() {
         System.out.println("\n Daftar Absensi karyawan: \n");
@@ -715,31 +749,68 @@ public class projekBeta2 {
 
     }
 
-static void inputKehadiran(){
-    for (int i = 0; i < jumlahPegawai; i++) {
-        System.out.println("Karyawan " + (i + 1) + ": ");
+    static void inputKehadiran() {
+        for (int i = 0; i < jumlahPegawai; i++) {
+            System.out.println("Karyawan " + (i + 1) + ": ");
 
-        for (int j = 0; j < absen[i].length; j++) {
-            System.out.print("Daftar Hadir pada hari " + namaHari[j] + "(Y/N): ");
-            String kehadiran = input.nextLine();
+            for (int j = 0; j < absen[i].length; j++) {
+                System.out.print("Daftar Hadir pada hari " + namaHari[j] + "(Y/N): ");
+                String kehadiran = input.nextLine();
 
-            if (kehadiran.equalsIgnoreCase("y")) {
-                absen[i][j] = "Hadir";
-            } else if (kehadiran.equalsIgnoreCase("n")) {
-                absen[i][j] = "Tidak Hadir";
-            } else {
-                System.out.println("Input salah, masukkan kembali dengan benar!");
-                j--;
+                if (kehadiran.equalsIgnoreCase("y")) {
+                    absen[i][j] = "Hadir";
+                } else if (kehadiran.equalsIgnoreCase("n")) {
+                    absen[i][j] = "Tidak Hadir";
+                } else {
+                    System.out.println("Input salah, masukkan kembali dengan benar!");
+                    j--;
+                }
+
             }
-
         }
+        System.out.println("Kehadiran telah direkam\nTerimakasih!");
+        menuPegawai();
+
     }
-    System.out.println("Kehadiran telah direkam\nTerimakasih!");
-    menuPegawai();
 
-}
+    static void cetakSlip(int a) {
+        a--;// mencari data dengan indeks yang sesuai
+        int gajiPokok, bonus, total;
+        switch (dataPegawai[a][1]) {
+            case "Koki":
+                gajiPokok = 2800000;
+                break;
+            case "Kasir":
+                gajiPokok = 2500000;
+                break;
+            case "Pramusaji":
+                gajiPokok = 2000000;
+                break;
+            default:
+                gajiPokok = 0; // Atur nilai default jika golongan tidak dikenali
+                break;
+        }
 
+        // Konversi string ke tipe data numerik
+        int usia = Integer.parseInt(dataPegawai[a][2]);
+        int lamaBekerja = Integer.parseInt(dataPegawai[a][3]);
+        int biayaBpjs = 30000;
+        if (usia > 50 && lamaBekerja > 5) {
+            bonus = 700000;
+        } else {
+            bonus = 500000;
+        }
 
-
+        total = gajiPokok + bonus - biayaBpjs;
+        System.out.println("=======SLIP GAJI=======");
+        System.out.println("Nama        : " + dataPegawai[a][0]);
+        System.out.println("Gaji pokok  : " + gajiPokok);
+        System.out.println("Bonus       : " + bonus);
+        System.out.println("Biaya BPJS  : " + biayaBpjs);
+        System.out.println("-----------------------");
+        System.out.println("Total       : " + total);
+        System.out.println();
+        menuPegawai();
+    }
 
 }
