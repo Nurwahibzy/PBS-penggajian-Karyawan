@@ -407,13 +407,16 @@ public class projekBeta2 {
             if (dataPegawai[i][0].equalsIgnoreCase(namaHapus)) {
                 System.out.println("Data ditemukan!");
                 System.out.println("Pegawai ke-" + (i + 1));
-                System.out.println("Nama: " + dataPegawai[i][0]);
-                System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-                System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-                System.out.println("Email: " + dataPegawai[i][4]);
-                System.out.println("Alamat: " + dataPegawai[i][5]);
-                System.out.println("Telepon: " + dataPegawai[i][6]);
+                System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
+                System.out.println("Jabatan Pegawai: " + dataPegawai[i][1]);
+                System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
+                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
+                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
+                System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
+                System.out.println("Email Pegawai: " + dataPegawai[i][7]);
+                System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
+                System.out.println("Telepon Pegawai: " + dataPegawai[i][9]);
 
                 System.out.print("Apakah Anda yakin ingin menghapus data pegawai ini? (Y/N): ");
                 String konfirmasi = input.nextLine();
@@ -426,6 +429,9 @@ public class projekBeta2 {
                         dataPegawai[j][4] = dataPegawai[j + 1][4];
                         dataPegawai[j][5] = dataPegawai[j + 1][5];
                         dataPegawai[j][6] = dataPegawai[j + 1][6];
+                        dataPegawai[j][7] = dataPegawai[j + 1][7];
+                        dataPegawai[j][8] = dataPegawai[j + 1][8];
+                        dataPegawai[j][9] = dataPegawai[j + 1][9];
                     }
                     jumlahPegawai--;
                     System.out.println("Data pegawai berhasil dihapus.");
@@ -459,16 +465,16 @@ public class projekBeta2 {
         if (pilihan > 0 && pilihan <= jumlahPegawai) {
             int i = pilihan - 1;
             System.out.println("Detail Pegawai:");
-            System.out.println("Nama                    : " + dataPegawai[i][0]);
-            System.out.println("Jabatan                 : " + dataPegawai[i][1]);
-            System.out.println("Usia                    : " + dataPegawai[i][2]);
-            System.out.println("Lama Bekerja            : " + dataPegawai[i][3]);
-            System.out.println("Jenis Kelamin           : " + dataPegawai[i][4]);
-            System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][5]);
-            System.out.println("Kebangsaan              : " + dataPegawai[i][6]);
-            System.out.println("Email                   : " + dataPegawai[i][7]);
-            System.out.println("Alamat                  : " + dataPegawai[i][8]);
-            System.out.println("Telepon                 : " + dataPegawai[i][9]);
+            System.out.println("Nama Pegawai                    : " + dataPegawai[i][0]);
+            System.out.println("Jabatan Pegawai                 : " + dataPegawai[i][1]);
+            System.out.println("Usia Pegawai                    : " + dataPegawai[i][2]);
+            System.out.println("Lama Pegawai Bekerja            : " + dataPegawai[i][3]);
+            System.out.println("Jenis Kelamin Pegawai           : " + dataPegawai[i][4]);
+            System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+            System.out.println("Kebangsaan Pegawai              : " + dataPegawai[i][6]);
+            System.out.println("Email Pegawai                   : " + dataPegawai[i][7]);
+            System.out.println("Alamat Pegawai                  : " + dataPegawai[i][8]);
+            System.out.println("Telepon Pegawai                 : " + dataPegawai[i][9]);
         } else {
             System.out.println("Nomor pegawai tidak valid.");
         }
