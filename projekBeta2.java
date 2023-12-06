@@ -302,22 +302,28 @@ public class projekBeta2 {
             if (dataPegawai[i][0].equalsIgnoreCase(namaUbah)) {
                 System.out.println("Data ditemukan!");
                 System.out.println("Pegawai ke-" + (i + 1));
-                System.out.println("Nama: " + dataPegawai[i][0]);
-                System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-                System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-                System.out.println("Email: " + dataPegawai[i][4]);
-                System.out.println("Alamat: " + dataPegawai[i][5]);
-                System.out.println("Telepon: " + dataPegawai[i][6]);
+                System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
+                System.out.println("Jabatan Pegawai (Koki/Kasir/Pramusaji): " + dataPegawai[i][1]);
+                System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
+                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
+                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
+                System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
+                System.out.println("Email Pegawai: " + dataPegawai[i][7]);
+                System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
+                System.out.println("Telepon Pegawai: " + dataPegawai[i][9]);
 
                 System.out.println("\nPILIH DATA PEGAWAI YANG AKAN DIUBAH:");
-                System.out.println("1. Nama");
-                System.out.println("2. Jenis Kelamin");
-                System.out.println("3. Tempat dan Tanggal Lahir");
-                System.out.println("4. Kebangsaan");
-                System.out.println("5. Email");
-                System.out.println("6. Alamat");
-                System.out.println("7. Nomor Telepon");
+                System.out.println("1. Nama Pegawai");
+                System.out.println("2. Jabatan Pegawai");
+                System.out.println("3. Usia Pegawai");
+                System.out.println("4. Lama Pegawai Bekerja");
+                System.out.println("5. Jenis Kelamin");
+                System.out.println("6. Tempat dan Tanggal Lahir");
+                System.out.println("7. Kebangsaan");
+                System.out.println("8. Email");
+                System.out.println("9. Alamat");
+                System.out.println("10. Nomor Telepon");
                 System.out.print("Masukkan nomor pilihan: ");
                 int pilihanUbah = input.nextInt();
                 input.nextLine(); // Menangani newline setelah nextInt()
@@ -328,28 +334,40 @@ public class projekBeta2 {
                         dataPegawai[i][0] = input.nextLine();
                         break;
                     case 2:
-                        System.out.print("Masukkan Jenis Kelamin Pegawai: ");
+                        System.out.print("Masukkan Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
                         dataPegawai[i][1] = input.nextLine();
                         break;
                     case 3:
-                        System.out.print("Masukkan Tempat dan Tanggal Lahir Pegawai: ");
+                        System.out.print("Masukkan Usia Pegawai: ");
                         dataPegawai[i][2] = input.nextLine();
                         break;
                     case 4:
-                        System.out.print("Masukkan Kebangsaan Pegawai: ");
+                        System.out.print("Masukkan Lama Pegawai Bekerja: ");
                         dataPegawai[i][3] = input.nextLine();
                         break;
                     case 5:
-                        System.out.print("Masukkan Alamat Email Pegawai: ");
+                        System.out.print("Masukkan Jenis Kelamin Pegawai: ");
                         dataPegawai[i][4] = input.nextLine();
                         break;
                     case 6:
-                        System.out.print("Masukkan Alamat Pegawai: ");
+                        System.out.print("Masukkan Tempat dan Tanggal Lahir Pegawai: ");
                         dataPegawai[i][5] = input.nextLine();
                         break;
                     case 7:
-                        System.out.print("Masukkan Nomor Telepon Pegawai: ");
+                        System.out.print("Masukkan Kebangsaan Pegawai: ");
                         dataPegawai[i][6] = input.nextLine();
+                        break;
+                    case 8:
+                        System.out.print("Masukkan Alamat Email Pegawai: ");
+                        dataPegawai[i][7] = input.nextLine();
+                        break;
+                    case 9:
+                        System.out.print("Masukkan Alamat Pegawai: ");
+                        dataPegawai[i][8] = input.nextLine();
+                        break;
+                    case 10:
+                        System.out.print("Masukkan Nomor Telepon Pegawai: ");
+                        dataPegawai[i][9] = input.nextLine();
                         break;
                     default:
                         System.out.println("Pilihan tidak valid.");
@@ -357,13 +375,16 @@ public class projekBeta2 {
 
                 System.out.println("\nDATA PEGAWAI YANG TELAH DIUBAH:");
                 System.out.println("Pegawai ke-" + (i + 1));
-                System.out.println("Nama: " + dataPegawai[i][0]);
-                System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-                System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-                System.out.println("Email: " + dataPegawai[i][4]);
-                System.out.println("Alamat: " + dataPegawai[i][5]);
-                System.out.println("Telepon: " + dataPegawai[i][6]);
+                System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
+                System.out.println("Jabatan Pegawai: " + dataPegawai[i][1]);
+                System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
+                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
+                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
+                System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
+                System.out.println("Email Pegawai: " + dataPegawai[i][7]);
+                System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
+                System.out.println("Telepon Pegawai: " + dataPegawai[i][9]);
                 ditemukanUbah = true;
                 break;
             }
