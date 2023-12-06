@@ -496,16 +496,16 @@ public class projekBeta2 {
                 System.out.println("=====================================");
                 System.out.println("Data ditemukan!");
                 System.out.println("Pegawai ke-" + (i + 1));
-                System.out.println("Nama                    : " + dataPegawai[i][0]);
-                System.out.println("Jabatan                 : " + dataPegawai[i][1]);
-                System.out.println("Usia                    : " + dataPegawai[i][2]);
-                System.out.println("Lama Bekerja            : " + dataPegawai[i][3]);
-                System.out.println("Jenis Kelamin           : " + dataPegawai[i][4]);
-                System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][5]);
-                System.out.println("Kebangsaan              : " + dataPegawai[i][6]);
-                System.out.println("Email                   : " + dataPegawai[i][7]);
-                System.out.println("Alamat                  : " + dataPegawai[i][8]);
-                System.out.println("Telepon                 : " + dataPegawai[i][9]);
+                System.out.println("Nama Pegawai                    : " + dataPegawai[i][0]);
+                System.out.println("Jabatan Pegawai                 : " + dataPegawai[i][1]);
+                System.out.println("Usia Pegawai                    : " + dataPegawai[i][2]);
+                System.out.println("Lama Pegawai Bekerja            : " + dataPegawai[i][3]);
+                System.out.println("Jenis Kelamin Pegawai           : " + dataPegawai[i][4]);
+                System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Kebangsaan Pegawai              : " + dataPegawai[i][6]);
+                System.out.println("Email Pegawai                   : " + dataPegawai[i][7]);
+                System.out.println("Alamat Pegawai                  : " + dataPegawai[i][8]);
+                System.out.println("Telepon Pegawai                 : " + dataPegawai[i][9]);
                 System.out.println("=====================================");
                 ditemukanCari = true;
                 break;
@@ -532,7 +532,7 @@ public class projekBeta2 {
             System.out.print("Nama Pegawai: ");
             dataPegawai[i][0] = input.nextLine();
             System.out.print("Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
-            dataPegawai[i][7] = input.nextLine();
+            dataPegawai[i][1] = input.nextLine();
             System.out.print("Tanggal Pembayaran Gaji (YYYY-MM-DD): ");
             String tanggalPembayaranStr = input.nextLine();
             tanggalPembayaran[i] = LocalDate.parse(tanggalPembayaranStr);
@@ -552,8 +552,8 @@ public class projekBeta2 {
         System.out.println("\nJadwal Pembayaran Gaji:");
         for (int i = 0; i < jumlahPegawai; i++) {
             System.out.println("Pegawai " + (i + 1) + ":");
-            System.out.println("Nama: " + dataPegawai[i][0]);
-            System.out.println("Jabatan: " + dataPegawai[i][7]);
+            System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
+            System.out.println("Jabatan Pegawai: " + dataPegawai[i][1]);
             System.out.println("Tanggal Pembayaran: " + tanggalPembayaran[i]);
             System.out.println("Gaji Pokok: " + jadwalGaji[i][0]);
             System.out.println("Bonus: " + jadwalGaji[i][1]);
@@ -587,7 +587,7 @@ public class projekBeta2 {
         System.out.println("\nData Kehadiran dan Jam Kerja Pegawai:");
         for (int i = 0; i < jumlahPegawai; i++) {
             System.out.println("Pegawai " + (i + 1) + ":");
-            System.out.println("Nama: " + dataPegawai[i][0]);
+            System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
             System.out.println("Jam Kerja: " + jamKerja[i] + " jam");
             System.out.println("-----------------------------");
         }
@@ -708,7 +708,7 @@ public class projekBeta2 {
             System.out.print("Nama Pegawai: ");
             dataPegawai[i][0] = input.nextLine();
             System.out.print("Jabatan Pegawai: ");
-            dataPegawai[i][7] = input.nextLine();
+            dataPegawai[i][1] = input.nextLine();
             System.out.print("Gaji Pegawai: ");
             jadwalGaji[i][3] = input.nextDouble();
             totalPengeluaranGaji += jadwalGaji[i][3];
