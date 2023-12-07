@@ -276,14 +276,16 @@ public class projekBeta2 {
 
         System.out.println("\nDATA PEGAWAI YANG TELAH DI INPUT:");
         for (int i = 0; i < jumlahPegawai; i++) {
-            System.out.println("Pegawai ke-" + (i + 1));
-            System.out.println("Nama: " + dataPegawai[i][0]);
-            System.out.println("Jenis Kelamin: " + dataPegawai[i][1]);
-            System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][2]);
-            System.out.println("Kebangsaan: " + dataPegawai[i][3]);
-            System.out.println("Email: " + dataPegawai[i][4]);
-            System.out.println("Alamat: " + dataPegawai[i][5]);
-            System.out.println("Telepon: " + dataPegawai[i][6]);
+            System.out.println("Nama                    : " + dataPegawai[i][0]);
+            System.out.println("Jabatan                 : " + dataPegawai[i][1]);
+            System.out.println("Usia                    : " + dataPegawai[i][2]);
+            System.out.println("Lama Bekerja            : " + dataPegawai[i][3]);
+            System.out.println("Jenis Kelamin           : " + dataPegawai[i][4]);
+            System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][5]);
+            System.out.println("Kebangsaan              : " + dataPegawai[i][6]);
+            System.out.println("Email                   : " + dataPegawai[i][7]);
+            System.out.println("Alamat                  : " + dataPegawai[i][8]);
+            System.out.println("Telepon                 : " + dataPegawai[i][9]);
             System.out.println("-----------------------------");
         }
 
@@ -791,22 +793,24 @@ public class projekBeta2 {
         // Konversi string ke tipe data numerik
         int usia = Integer.parseInt(dataPegawai[a][2]);
         int lamaBekerja = Integer.parseInt(dataPegawai[a][3]);
-        int biayaBpjs = 30000;
+        int biayaBpjs = 10000;
+        int biayaKoperasi = 30000;
+        double pajak = 0.05;
         if (usia > 50 && lamaBekerja > 5) {
             bonus = 700000;
         } else {
             bonus = 500000;
         }
-
-        total = gajiPokok + bonus - biayaBpjs;
+        total = (int) ((gajiPokok + bonus - biayaBpjs - biayaKoperasi) * (1 - pajak)); 
         System.out.println("=======SLIP GAJI=======");
         System.out.println("Nama        : " + dataPegawai[a][0]);
         System.out.println("Gaji pokok  : " + gajiPokok);
         System.out.println("Bonus       : " + bonus);
         System.out.println("Biaya BPJS  : " + biayaBpjs);
-        System.out.println("-----------------------");
-        System.out.println("Total       : " + total);
+        System.out.println("_______________________");
+        System.out.println("Total       : " + ()total);
         System.out.println();
+        System.out.println("-----------------------");
         menuPegawai();
     }
 
