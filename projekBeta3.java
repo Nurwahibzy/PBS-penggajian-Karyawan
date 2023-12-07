@@ -151,7 +151,6 @@ static {
         System.out.println("2. Input kehadiran");
         System.out.println("3. Permintaan Cuti");
         System.out.println("4. Log Out");
-        System.out.println("3. Log Out");
         System.out.print("Silahkan Pilih Menu Diatas (1/2/3): ");
         int menuPegawai = input.nextInt();
         input.nextLine();
@@ -171,6 +170,7 @@ static {
                 break;
             case 3:
                 prosesPermintaanCuti();
+                break;
             case 4:
                 login();
                 break;
@@ -580,8 +580,6 @@ static {
         
         }
 
-        input.nextLine();
-        menuAdmin();
 
     }
 
