@@ -26,6 +26,7 @@ static {
                                                        // gaji)
     static int[][] kinerjaPegawai = new int[100][3]; // 100 pegawai, 3 atribut(baik, cukup, perlu perbaikan)
     static int totalKehadiran = 0, totalTidakHadir = 0;
+
     static int[] jumlahHariCuti;
     static boolean[] statusPersetujuan;
     static int jumlahPermintaan = 0;
@@ -150,6 +151,7 @@ static {
         System.out.println("2. Input kehadiran");
         System.out.println("3. Permintaan Cuti");
         System.out.println("4. Log Out");
+        System.out.println("3. Log Out");
         System.out.print("Silahkan Pilih Menu Diatas (1/2/3): ");
         int menuPegawai = input.nextInt();
         input.nextLine();
@@ -575,7 +577,12 @@ static {
             System.out.println("Bonus: Rp" + jadwalGaji[i][1]);
             System.out.println("Potongan: Rp" + jadwalGaji[i][2]);
             System.out.println("=====================================");
+        
         }
+
+        input.nextLine();
+        menuAdmin();
+
     }
 
     static void menuLacakKehadiran() {
