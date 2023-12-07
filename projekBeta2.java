@@ -7,7 +7,7 @@ public class projekBeta2 {
     static Scanner input = new Scanner(System.in);
     static String[] username = { "admin1", "pegawai2", "manajer3" };
     static String[] password = { "adminpassword1", "pegawaipassword2", "manajerpassword3" };
-    static String[][] dataPegawai = new String[100][10]; // 100 pegawai, 8 atribut(nama,jabatan, Usia, lama bekerja,
+    static String[][] dataPegawai = new String[100][10]; // 100 pegawai, 10 atribut(nama,jabatan, Usia, lama bekerja,
                                                          // jenisKelamin,ttl, kebangsaan,
                                                          // email, alamat, noTelp )
     static double[][] jadwalGaji = new double[100][4]; // 100 pegawai, 4 atribut(gaji pokok, bonus, potongan, total
@@ -132,6 +132,7 @@ public class projekBeta2 {
                 break;
         }
     }
+    
 
     static void menuPegawai() {
         System.out.println("===BERIKUT PILIHAN MENU PEGAWAI===");
