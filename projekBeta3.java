@@ -422,16 +422,16 @@ public class projekBeta3 {
                 String konfirmasi = input.nextLine();
                 if (konfirmasi.toLowerCase().equals("y")) {
                     for (int j = i; j < jumlahPegawai - 1; j++) {
-                        dataPegawai[j][0] = dataPegawai[j + 1][0];
-                        dataPegawai[j][1] = dataPegawai[j + 1][1];
-                        dataPegawai[j][2] = dataPegawai[j + 1][2];
-                        dataPegawai[j][3] = dataPegawai[j + 1][3];
-                        dataPegawai[j][4] = dataPegawai[j + 1][4];
-                        dataPegawai[j][5] = dataPegawai[j + 1][5];
-                        dataPegawai[j][6] = dataPegawai[j + 1][6];
-                        dataPegawai[j][7] = dataPegawai[j + 1][7];
-                        dataPegawai[j][8] = dataPegawai[j + 1][8];
-                        dataPegawai[j][9] = dataPegawai[j + 1][9];
+                        dataPegawai[j][0] = null;
+                        dataPegawai[j][1] = null;
+                        dataPegawai[j][2] = null;
+                        dataPegawai[j][3] = null;
+                        dataPegawai[j][4] = null;
+                        dataPegawai[j][5] = null;
+                        dataPegawai[j][6] = null;
+                        dataPegawai[j][7] = null;
+                        dataPegawai[j][8] = null;
+                        dataPegawai[j][9] = null;
                     }
                     jumlahPegawai--;
                     System.out.println("Data pegawai berhasil dihapus.");
