@@ -132,7 +132,7 @@ public class projekBeta2 {
                 break;
         }
     }
-    
+
 
     static void menuPegawai() {
         System.out.println("===BERIKUT PILIHAN MENU PEGAWAI===");
@@ -809,7 +809,7 @@ public class projekBeta2 {
         System.out.println("Bonus       : " + bonus);
         System.out.println("Biaya BPJS  : " + biayaBpjs);
         System.out.println("_______________________");
-        System.out.println("Total       : " + ()total);
+        System.out.println("Total       : " + total);
         System.out.println();
         System.out.println("-----------------------");
         menuPegawai();
