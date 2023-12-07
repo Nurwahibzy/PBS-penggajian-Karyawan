@@ -7,9 +7,22 @@ public class projekBeta3 {
     static Scanner input = new Scanner(System.in);
     static String[] username = { "admin1", "pegawai2", "manajer3" };
     static String[] password = { "adminpassword1", "pegawaipassword2", "manajerpassword3" };
-    static String[][] dataPegawai = new String[100][10]; // 100 pegawai, 8 atribut(nama,jabatan, Usia, lama bekerja,
-                                                         // jenisKelamin,ttl, kebangsaan,
-                                                         // email, alamat, noTelp )
+    static String[][] dataPegawai = new String[100][10]; // 100 pegawai, 10 atribut(nama,jabatan, Usia, lama bekerja, jenisKelamin,ttl, kebangsaan, email, alamat, noTelp )
+static {
+    // Inisialisasi data awal
+    dataPegawai[0][0] = "Adam";
+    dataPegawai[0][1] = "Koki";
+    dataPegawai[0][2] = "50";
+    dataPegawai[0][3] = "5";
+    dataPegawai[0][4] = "L";
+    dataPegawai[0][5] = "Malang, 12 Januari 2005";
+    dataPegawai[0][6] = "Indonesia";
+    dataPegawai[0][7] = "adamcuy@gmail.com";
+    dataPegawai[0][8] = "Malang";
+    dataPegawai[0][9] = "08123456378";
+
+}
+
     static double[][] jadwalGaji = new double[100][4]; // 100 pegawai, 4 atribut(gaji pokok, bonus, potongan, total
                                                        // gaji)
     static int[][] kinerjaPegawai = new int[100][3]; // 100 pegawai, 3 atribut(baik, cukup, perlu perbaikan)
