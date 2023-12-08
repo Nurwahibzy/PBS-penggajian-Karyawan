@@ -4,7 +4,10 @@ import java.util.Scanner;
 public class projekBeta3 {
 
     static Scanner input = new Scanner(System.in);
-    static String[] username = { "admin1", "pegawai2", "manajer3" };
+    //data login
+    static String pegawai[][] = {{ "pegawai1", "pegawai2", "pegawai3" }, {"pegawaipassword1", "pegawaipassword2", "pegawaipassword3"}};
+    static String admin[][] = {{ "admin1", "admin2", "admin3" }, {"adminpassword1", "adminpassword2", "adminpassword3"}};
+    static String manajer[][] = {{ "manajer1", "manajer2", "manajer3" }, {"manajerpassword1", "manajerpassword2", "manajerpassword3"}};
     static String[] password = { "adminpassword1", "pegawaipassword2", "manajerpassword3" };
     static String[][] dataPegawai = new String[100][10]; // 100 pegawai, 10 atribut(nama,jabatan, Usia, lama bekerja, jenisKelamin,ttl, kebangsaan, email, alamat, noTelp )
 static {
@@ -82,30 +85,55 @@ static {
         }
     }
 
-    // Memeriksa apakah username dan password sesuai
     static boolean isTerverifikasi(String a, String b) {
-        for (int i = 0; i < username.length; i++) {
-            if (a.equalsIgnoreCase(username[i]) && b.equals(password[i])) {
+        for (int i = 0; i < pegawai[0].length; i++) {
+            if (a.equalsIgnoreCase(pegawai[0][i]) && b.equals(pegawai[1][i])) {
+                return true;
+            }
+        }
+        for (int i = 0; i < admin[0].length; i++) {
+            if (a.equalsIgnoreCase(admin[0][i]) && b.equals(admin[1][i])) {
+                return true;
+            }
+        }
+        for (int i = 0; i < manajer[0].length; i++) {
+            if (a.equalsIgnoreCase(manajer[0][i]) && b.equals(manajer[1][i])) {
                 return true;
             }
         }
         return false;
     }
-
-    // memilih hak akses
+    
+    // periksa peran admin
     static void cekHakAkses() {
-        if (usernameInput.equalsIgnoreCase("admin1")) {
-            // menu admin
-            menuAdmin();
-        } else if (usernameInput.equalsIgnoreCase("pegawai2")) {
-            // menu pegawai
-            menuPegawai();
-        } else {
-            // menu manajer
-            menuManajer();
+        for (int i = 0; i < admin[0].length; i++) {
+            if (usernameInput.equalsIgnoreCase(admin[0][i])) {
+                // menu admin
+                menuAdmin();
+                return; // keluar dari method setelah nama pengguna yang benar ditemukan
+            }
         }
+    
+        // periksa peran pegawai
+        for (int i = 0; i < pegawai[0].length; i++) {
+            if (usernameInput.equalsIgnoreCase(pegawai[0][i])) {
+                // menu pegawai
+                menuPegawai();
+                return;
+            }
+        }
+    
+        // Periksa peran manajer
+        for (int i = 0; i < manajer[0].length; i++) {
+            if (usernameInput.equalsIgnoreCase(manajer[0][i])) {
+                // menu manajer
+                menuManajer();
+                return;
+            }
+        }
+    
+        System.out.println("Invalid username.");
     }
-
     static void menuAdmin() {
         System.out.println("\n===PILIHAN MENU ADMIN===");
         System.out.println("1. Menu Manajemen Data Pegawai");
@@ -690,6 +718,7 @@ static {
         }
 
         input.nextLine();
+        menuPegawai();
     }
 
     static void persetujuanCuti() {
