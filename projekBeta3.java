@@ -239,7 +239,7 @@ public class projekBeta3 {
                 cetakAbsensiKaryawan();
                 break;
             case 3:
-                namaCari();
+                namaCari(2);
                 break;
             case 4:
                 login();
@@ -274,7 +274,7 @@ public class projekBeta3 {
                 hapusPegawai();
                 break;
             case 4:
-                namaCari();
+                namaCari(1);
                 break;
             case 5:
                 lihatDetailPegawai(1);
@@ -542,7 +542,7 @@ public class projekBeta3 {
         }
     }
 
-    static void namaCari() {
+    static void namaCari(int a) {
         System.out.print("Masukkan Nama Pegawai yang akan dicari: ");
         String namaCari = input.nextLine();
         boolean ditemukanCari = false;
@@ -567,13 +567,14 @@ public class projekBeta3 {
                 break;
             }
         }
-menuManajemen(); // kembali ke menu manajemen
-
         if (!ditemukanCari) {
-            System.out.println("Data pegawai dengan nama " + namaCari + " tidak ditemukan.");
-menuManajemen();
+            System.out.println("\nData pegawai dengan nama " + namaCari + " tidak ditemukan.");
         }
-       
+        if (a == 1) {
+            menuManajemen();
+        } else {
+            menuManajer();
+        }
 
     }
 
@@ -620,7 +621,6 @@ menuManajemen();
             System.out.println("=====================================");
 
         }
-
 
     }
 
