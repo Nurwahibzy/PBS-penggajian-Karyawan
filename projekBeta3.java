@@ -4,26 +4,30 @@ import java.util.Scanner;
 public class projekBeta3 {
 
     static Scanner input = new Scanner(System.in);
-    //data login
-    static String pegawai[][] = {{ "pegawai1", "pegawai2", "pegawai3" }, {"pegawaipassword1", "pegawaipassword2", "pegawaipassword3"}};
-    static String admin[][] = {{ "admin1", "admin2", "admin3" }, {"adminpassword1", "adminpassword2", "adminpassword3"}};
-    static String manajer[][] = {{ "manajer1", "manajer2", "manajer3" }, {"manajerpassword1", "manajerpassword2", "manajerpassword3"}};
+    // data login
+    static String pegawai[][] = { { "pegawai1", "pegawai2", "pegawai3" },
+            { "pegawaipassword1", "pegawaipassword2", "pegawaipassword3" } };
+    static String admin[][] = { { "admin1", "admin2", "admin3" },
+            { "adminpassword1", "adminpassword2", "adminpassword3" } };
+    static String manajer[][] = { { "manajer1", "manajer2", "manajer3" },
+            { "manajerpassword1", "manajerpassword2", "manajerpassword3" } };
     static String[] password = { "adminpassword1", "pegawaipassword2", "manajerpassword3" };
-    static String[][] dataPegawai = new String[100][10]; // 100 pegawai, 10 atribut(nama,jabatan, Usia, lama bekerja, jenisKelamin,ttl, kebangsaan, email, alamat, noTelp )
-static {
-    // Inisialisasi data awal
-    dataPegawai[0][0] = "Adam";
-    dataPegawai[0][1] = "Koki";
-    dataPegawai[0][2] = "50";
-    dataPegawai[0][3] = "5";
-    dataPegawai[0][4] = "L";
-    dataPegawai[0][5] = "Malang, 12 Januari 2005";
-    dataPegawai[0][6] = "Indonesia";
-    dataPegawai[0][7] = "adamcuy@gmail.com";
-    dataPegawai[0][8] = "Malang";
-    dataPegawai[0][9] = "08123456378";
+    static String[][] dataPegawai = new String[100][10]; // 100 pegawai, 10 atribut(nama,jabatan, Usia, lama bekerja,
+                                                         // jenisKelamin,ttl, kebangsaan, email, alamat, noTelp )
+    static {
+        // Inisialisasi data awal
+        dataPegawai[0][0] = "Adam";
+        dataPegawai[0][1] = "Koki";
+        dataPegawai[0][2] = "50";
+        dataPegawai[0][3] = "5";
+        dataPegawai[0][4] = "L";
+        dataPegawai[0][5] = "Malang, 12 Januari 2005";
+        dataPegawai[0][6] = "Indonesia";
+        dataPegawai[0][7] = "adamcuy@gmail.com";
+        dataPegawai[0][8] = "Malang";
+        dataPegawai[0][9] = "08123456378";
 
-}
+    }
 
     static double[][] jadwalGaji = new double[100][4]; // 100 pegawai, 4 atribut(gaji pokok, bonus, potongan, total
                                                        // gaji)
@@ -37,17 +41,24 @@ static {
     static int nomorSlip;
 
     // Menginisialisasi absen
-    static String[][] absen = new String[100][6];
+    static int[][] absen = new int[100][6];
     // Mendeklarasikan nama-nama hari
     static String namaHari[] = { "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu" };
+    static {
+        absen[0][0] = 1;
+        absen[0][1] = 1;
+        absen[0][2] = 1;
+        absen[0][3] = 1;
+        absen[0][4] = 1;
+        absen[0][5] = 0;
 
+    }
     static String usernameInput, passwordInput;
 
     static int jumlahPegawai = 1;
 
     public static void main(String[] args) {
         login();
-        // menuManajer();
     }
 
     static void login() {
@@ -103,7 +114,7 @@ static {
         }
         return false;
     }
-    
+
     // periksa peran admin
     static void cekHakAkses() {
         for (int i = 0; i < admin[0].length; i++) {
@@ -113,7 +124,7 @@ static {
                 return; // keluar dari method setelah nama pengguna yang benar ditemukan
             }
         }
-    
+
         // periksa peran pegawai
         for (int i = 0; i < pegawai[0].length; i++) {
             if (usernameInput.equalsIgnoreCase(pegawai[0][i])) {
@@ -122,7 +133,7 @@ static {
                 return;
             }
         }
-    
+
         // Periksa peran manajer
         for (int i = 0; i < manajer[0].length; i++) {
             if (usernameInput.equalsIgnoreCase(manajer[0][i])) {
@@ -131,9 +142,10 @@ static {
                 return;
             }
         }
-    
+
         System.out.println("Invalid username.");
     }
+
     static void menuAdmin() {
         System.out.println("\n===PILIHAN MENU ADMIN===");
         System.out.println("1. Menu Manajemen Data Pegawai");
@@ -555,12 +567,13 @@ static {
                 break;
             }
         }
-        menuManajemen(); // kembali ke menu manajemen
+menuManajemen(); // kembali ke menu manajemen
 
         if (!ditemukanCari) {
             System.out.println("Data pegawai dengan nama " + namaCari + " tidak ditemukan.");
-            menuManajemen();
+menuManajemen();
         }
+       
 
     }
 
@@ -605,7 +618,7 @@ static {
             System.out.println("Bonus: Rp" + jadwalGaji[i][1]);
             System.out.println("Potongan: Rp" + jadwalGaji[i][2]);
             System.out.println("=====================================");
-        
+
         }
 
 
@@ -805,14 +818,22 @@ static {
 
     static void cetakAbsensiKaryawan() {
         System.out.println("\n Daftar Absensi karyawan: \n");
-
+        String keterangan;
         for (int i = 0; i < jumlahPegawai; i++) {
             System.out.println("Karyawan " + (i + 1) + ": ");
             for (int j = 0; j < absen[i].length; j++) {
-                if (absen[i][j] == null) {
-                    absen[i][j] = "Kosong";
+                switch (absen[i][j]) {
+                    case 0:
+                        keterangan = "Tidak hadir";
+                        break;
+                    case 1:
+                        keterangan = "Hadir";
+                        break;
+                    default:
+                        keterangan = "-";
+                        break;
                 }
-                System.out.println(" hari " + namaHari[j] + ": " + absen[i][j]);
+                System.out.println(" hari " + namaHari[j] + ": " + keterangan);
 
             }
             System.out.println("-----------------------------");
@@ -829,9 +850,9 @@ static {
                 String kehadiran = input.nextLine();
 
                 if (kehadiran.equalsIgnoreCase("y")) {
-                    absen[i][j] = "Hadir";
+                    absen[i][j] = 1;
                 } else if (kehadiran.equalsIgnoreCase("n")) {
-                    absen[i][j] = "Tidak Hadir";
+                    absen[i][j] = 0;
                 } else {
                     System.out.println("Input salah, masukkan kembali dengan benar!");
                     j--;
