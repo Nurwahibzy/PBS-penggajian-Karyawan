@@ -314,7 +314,7 @@ public class projekBeta3 {
             System.out.print("Masukkan Jenis Kelamin Pegawai: ");
             dataPegawai[i][4] = input.nextLine();
 
-            System.out.print("Masukkan Tempat dan Tanggal Lahir Pegawai: ");
+            System.out.print("Masukkan Tempat, Tanggal Lahir Pegawai: ");
             dataPegawai[i][5] = input.nextLine();
 
             System.out.print("Masukkan Kebangsaan Pegawai: ");
@@ -338,7 +338,7 @@ public class projekBeta3 {
             System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
             System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
             System.out.println("Jenis Kelamin: " + dataPegawai[i][4]);
-            System.out.println("Tempat dan Tanggal Lahir: " + dataPegawai[i][5]);
+            System.out.println("Tempat, Tanggal Lahir: " + dataPegawai[i][5]);
             System.out.println("Kebangsaan: " + dataPegawai[i][6]);
             System.out.println("Email: " + dataPegawai[i][7]);
             System.out.println("Alamat: " + dataPegawai[i][8]);
@@ -363,7 +363,7 @@ public class projekBeta3 {
                 System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
                 System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
                 System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
-                System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
                 System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
                 System.out.println("Email Pegawai: " + dataPegawai[i][7]);
                 System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
@@ -375,7 +375,7 @@ public class projekBeta3 {
                 System.out.println("3. Usia Pegawai");
                 System.out.println("4. Lama Pegawai Bekerja");
                 System.out.println("5. Jenis Kelamin");
-                System.out.println("6. Tempat dan Tanggal Lahir");
+                System.out.println("6. Tempat, Tanggal Lahir");
                 System.out.println("7. Kebangsaan");
                 System.out.println("8. Email");
                 System.out.println("9. Alamat");
@@ -406,7 +406,7 @@ public class projekBeta3 {
                         dataPegawai[i][4] = input.nextLine();
                         break;
                     case 6:
-                        System.out.print("Masukkan Tempat dan Tanggal Lahir Pegawai: ");
+                        System.out.print("Masukkan Tempat, Tanggal Lahir Pegawai: ");
                         dataPegawai[i][5] = input.nextLine();
                         break;
                     case 7:
@@ -436,7 +436,7 @@ public class projekBeta3 {
                 System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
                 System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
                 System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
-                System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
                 System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
                 System.out.println("Email Pegawai: " + dataPegawai[i][7]);
                 System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
@@ -468,7 +468,7 @@ public class projekBeta3 {
                 System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
                 System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
                 System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
-                System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
                 System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
                 System.out.println("Email Pegawai: " + dataPegawai[i][7]);
                 System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
@@ -526,7 +526,7 @@ public class projekBeta3 {
             System.out.println("Usia Pegawai                    : " + dataPegawai[i][2]);
             System.out.println("Lama Pegawai Bekerja            : " + dataPegawai[i][3]);
             System.out.println("Jenis Kelamin Pegawai           : " + dataPegawai[i][4]);
-            System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+            System.out.println("Tempat, Tanggal Lahir Pegawai   : " + dataPegawai[i][5]);
             System.out.println("Kebangsaan Pegawai              : " + dataPegawai[i][6]);
             System.out.println("Email Pegawai                   : " + dataPegawai[i][7]);
             System.out.println("Alamat Pegawai                  : " + dataPegawai[i][8]);
@@ -557,7 +557,7 @@ public class projekBeta3 {
                 System.out.println("Usia Pegawai                    : " + dataPegawai[i][2]);
                 System.out.println("Lama Pegawai Bekerja            : " + dataPegawai[i][3]);
                 System.out.println("Jenis Kelamin Pegawai           : " + dataPegawai[i][4]);
-                System.out.println("Tempat dan Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Tempat, Tanggal Lahir Pegawai   : " + dataPegawai[i][5]);
                 System.out.println("Kebangsaan Pegawai              : " + dataPegawai[i][6]);
                 System.out.println("Email Pegawai                   : " + dataPegawai[i][7]);
                 System.out.println("Alamat Pegawai                  : " + dataPegawai[i][8]);
