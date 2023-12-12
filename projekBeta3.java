@@ -66,9 +66,9 @@ public class projekBeta3 {
 
             int sisaKesempatan = 3 - kesempatanLogin;// menghitung sisa kesempatan login
 
-            System.out.println("\n====================================");
-            System.out.println("     Sistem Penggajian Restoran     ");
-            System.out.println("====================================");
+            System.out.println("\n======================================");
+            System.out.println("|     Sistem Penggajian Restoran     |");
+            System.out.println("======================================");
             System.out.print("Masukkan username: ");
             usernameInput = input.nextLine();
 
@@ -148,9 +148,11 @@ public class projekBeta3 {
     }
 
     static void menuAdmin() {
-        System.out.println("\n===PILIHAN MENU ADMIN===");
+        System.out.println("\n======================================");
+        System.out.println("|         PILIHAN MENU ADMIN         |");
+        System.out.println("======================================");
         System.out.println("1. Menu Manajemen Data Pegawai");
-        System.out.println("2. Menu Penyusunan Jadwal Pembayaran Gaji");
+        System.out.println("2. Menu Informasi Gaji Pegawai");
         System.out.println("3. Menu Catat dan Lacak Kehadiran Pegawai dan Jam Kerja");
         System.out.println("4. Menu Lihat Permintaan dan Persetujuan Cuti");
         System.out.println("5. Menu Laporan Pengeluaran Gaji, Kinerja Pegawai, dan Tren Kehadiran");
@@ -187,7 +189,9 @@ public class projekBeta3 {
     }
 
     static void menuPegawai() {
-        System.out.println("\n===BERIKUT PILIHAN MENU PEGAWAI===");
+        System.out.println("\n======================================");
+        System.out.println("|         PILIHAN MENU PEGAWAI       |");
+        System.out.println("======================================");
         System.out.println("1. Cetak Slip Gaji");
         System.out.println("2. Input kehadiran");
         System.out.println("3. Permintaan Cuti");
@@ -224,7 +228,9 @@ public class projekBeta3 {
     }
 
     static void menuManajer() {
-        System.out.println("\n===PILIHAN MENU MANAJER===");
+        System.out.println("\n======================================");
+        System.out.println("|         PILIHAN MENU MANAJER       |");
+        System.out.println("======================================");
         System.out.println("1. Tampilkan Data Pegawai");
         System.out.println("2. Hasil rekap absensi karyawan");
         System.out.println("3. Pencarian data");
@@ -253,7 +259,9 @@ public class projekBeta3 {
     }
 
     static void menuManajemen() {
-        System.out.println("\nMENU MANAJEMEN DATA PEGAWAI");
+        System.out.println("\n======================================");
+        System.out.println("|     MENU MANAJEMEN DATA PEGAWAI    |");
+        System.out.println("======================================");
         System.out.println("1. Input Data Pegawai");
         System.out.println("2. Edit Data Pegawai");
         System.out.println("3. Hapus Data Pegawai");
