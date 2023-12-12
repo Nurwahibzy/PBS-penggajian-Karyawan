@@ -148,7 +148,7 @@ public class projekBeta3 {
     }
 
     static void menuAdmin() {
-        System.out.println("/n===PILIHAN MENU ADMIN===");
+        System.out.println("\n===PILIHAN MENU ADMIN===");
         System.out.println("1. Menu Manajemen Data Pegawai");
         System.out.println("2. Menu Penyusunan Jadwal Pembayaran Gaji");
         System.out.println("3. Menu Catat dan Lacak Kehadiran Pegawai dan Jam Kerja");
