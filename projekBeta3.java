@@ -148,15 +148,16 @@ public class projekBeta3 {
     }
 
     static void menuAdmin() {
-        System.out.println("\n======================================");
-        System.out.println("|         PILIHAN MENU ADMIN         |");
-        System.out.println("======================================");
-        System.out.println("1. Menu Manajemen Data Pegawai");
-        System.out.println("2. Menu Informasi Gaji Pegawai");
-        System.out.println("3. Menu Catat dan Lacak Kehadiran Pegawai dan Jam Kerja");
-        System.out.println("4. Menu Lihat Permintaan dan Persetujuan Cuti");
-        System.out.println("5. Menu Laporan Pengeluaran Gaji, Kinerja Pegawai, dan Tren Kehadiran");
-        System.out.println("6. Keluar (Log Out)");
+        System.out.println("\n============================================================================");
+        System.out.println("|                              PILIHAN MENU ADMIN                          |");
+        System.out.println("============================================================================");
+        System.out.println("|1. Menu Manajemen Data Pegawai                                            |");
+        System.out.println("|2. Menu Informasi Gaji Pegawai                                            |");
+        System.out.println("|3. Menu Catat dan Lacak Kehadiran Pegawai dan Jam Kerja                   |");
+        System.out.println("|4. Menu Lihat Permintaan dan Persetujuan Cuti                             |");
+        System.out.println("|5. Menu Laporan Pengeluaran Gaji, Kinerja Pegawai, dan Tren Kehadiran     |");
+        System.out.println("|6. Keluar (Log Out)                                                       |");
+        System.out.println("============================================================================");
         System.out.print("Silahkan Pilih Menu Diatas (1/2/3/4/5/6): ");
         int menuAdmin = input.nextInt();
         input.nextLine();
@@ -192,10 +193,11 @@ public class projekBeta3 {
         System.out.println("\n======================================");
         System.out.println("|         PILIHAN MENU PEGAWAI       |");
         System.out.println("======================================");
-        System.out.println("1. Cetak Slip Gaji");
-        System.out.println("2. Input kehadiran");
-        System.out.println("3. Permintaan Cuti");
-        System.out.println("4. Log Out");
+        System.out.println("|1. Cetak Slip Gaji                  |");
+        System.out.println("|2. Input kehadiran                  |");
+        System.out.println("|3. Permintaan Cuti                  |");
+        System.out.println("|4. Log Out                          |");
+        System.out.println("======================================");
         System.out.print("Silahkan Pilih Menu Diatas (1/2/3): ");
         int menuPegawai = input.nextInt();
         input.nextLine();
@@ -231,10 +233,11 @@ public class projekBeta3 {
         System.out.println("\n======================================");
         System.out.println("|         PILIHAN MENU MANAJER       |");
         System.out.println("======================================");
-        System.out.println("1. Tampilkan Data Pegawai");
-        System.out.println("2. Hasil rekap absensi karyawan");
-        System.out.println("3. Pencarian data");
-        System.out.println("4. Log Out");
+        System.out.println("|1. Tampilkan Data Pegawai           |");
+        System.out.println("|2. Hasil rekap absensi karyawan     |");
+        System.out.println("|3. Pencarian data                   |");
+        System.out.println("|4. Log Out                          |");
+        System.out.println("======================================");
         System.out.print("Silahkan Pilih Menu Diatas (1/2/3/4): ");
         int menuManajer = input.nextInt();
         input.nextLine();
@@ -262,12 +265,13 @@ public class projekBeta3 {
         System.out.println("\n======================================");
         System.out.println("|     MENU MANAJEMEN DATA PEGAWAI    |");
         System.out.println("======================================");
-        System.out.println("1. Input Data Pegawai");
-        System.out.println("2. Edit Data Pegawai");
-        System.out.println("3. Hapus Data Pegawai");
-        System.out.println("4. Cari Data Pegawai");
-        System.out.println("5. Lihat Detail Data Pegawai");
-        System.out.println("6. Kembali");
+        System.out.println("|1. Input Data Pegawai               |");
+        System.out.println("|2. Edit Data Pegawai                |");
+        System.out.println("|3. Hapus Data Pegawai               |");
+        System.out.println("|4. Cari Data Pegawai                |");
+        System.out.println("|5. Lihat Detail Data Pegawai        |");
+        System.out.println("|6. Kembali                          |");
+        System.out.println("======================================");
         System.out.print("Pilih Menu: ");
         int menuManajemen = input.nextInt();
         input.nextLine();
@@ -826,10 +830,10 @@ public class projekBeta3 {
     }
 
     static void cetakAbsensiKaryawan() {
-        System.out.println("\n Daftar Absensi karyawan: \n");
+        System.out.println("\n Daftar Absensi Pegawai: \n");
         String keterangan;
         for (int i = 0; i < jumlahPegawai; i++) {
-            System.out.println("Karyawan " + (i + 1) + ": ");
+            System.out.println("Pegawai " + (i + 1) + ": ");
             for (int j = 0; j < absen[i].length; j++) {
                 switch (absen[i][j]) {
                     case 0:
@@ -852,7 +856,7 @@ public class projekBeta3 {
 
     static void inputKehadiran() {
         for (int i = 0; i < jumlahPegawai; i++) {
-            System.out.println("Karyawan " + (i + 1) + ": ");
+            System.out.println("Pegawai " + (i + 1) + ": ");
 
             for (int j = 0; j < absen[i].length; j++) {
                 System.out.print("Daftar Hadir pada hari " + namaHari[j] + "(Y/N): ");
