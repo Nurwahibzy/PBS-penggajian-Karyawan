@@ -46,6 +46,7 @@ public class projekBeta3 {
     static int jumlahPermintaan = 0;
     static double totalPengeluaranGaji = 0;
     static int nomorSlip;
+    static int jumlahJabatan;
 
     // Menginisialisasi absen
     static int[][] absen = new int[100][6];
@@ -603,52 +604,48 @@ public class projekBeta3 {
     }
 
     static void menuInformasiGaji() {
-        System.out.println("Selamat datang di menu Penyusunan Gaji Pegawai!");
-        System.out.print("Masukkan Jumlah Jabatan: ");
-        int jumlahJabatan = input.nextInt();
+    System.out.println("Selamat datang di menu Penyusunan Gaji Pegawai!");
+    System.out.print("Masukkan Jumlah Jabatan: ");
+    jumlahJabatan = input.nextInt();
+    input.nextLine(); // Membersihkan buffer
+
+    //dataPegawai = new String[jumlahJabatan][3];
+    //jadwalGaji = new double[jumlahJabatan][4];
+
+    for (int i = 0; i < jumlahJabatan; i++) {
+        System.out.println("\nMasukkan informasi untuk Jabatan ke-" + (i + 1) + ":");
+
+        System.out.print("Jabatan (Koki/Kasir/Pramusaji): ");
+        dataPegawai[i][2] = input.nextLine().toLowerCase();
+
+        System.out.print("Gaji Pokok untuk " + dataPegawai[i][2] + ": Rp");
+        jadwalGaji[i][0] = input.nextDouble();
+
+        System.out.print("Bonus untuk " + dataPegawai[i][2] + ": Rp");
+        jadwalGaji[i][1] = input.nextDouble();
+
+        System.out.print("Potongan untuk " + dataPegawai[i][2] + ": Rp");
+        jadwalGaji[i][2] = input.nextDouble();
+
         input.nextLine(); // Membersihkan buffer
-
-        dataPegawai = new String[jumlahJabatan][2];
-        jadwalGaji = new double[jumlahJabatan][3];
-
-        for (int i = 0; i < jumlahJabatan; i++) {
-            System.out.println("\nMasukkan informasi untuk Jabatan ke-" + (i + 1) + ":");
-
-            System.out.print("Jabatan (Koki/Kasir/Pramusaji): ");
-            dataPegawai[i][2] = input.nextLine().toLowerCase();
-
-            System.out.print("Gaji Pokok untuk " + dataPegawai[i][2] + ": Rp");
-            jadwalGaji[i][0] = input.nextDouble();
-
-            System.out.print("Bonus untuk " + dataPegawai[i][2] + ": Rp");
-            jadwalGaji[i][1] = input.nextDouble();
-
-            System.out.print("Potongan untuk " + dataPegawai[i][2] + ": Rp");
-            jadwalGaji[i][2] = input.nextDouble();
-
-            input.nextLine();
-
-        }
-
-       
-        menuAdmin();
     }
+
+    menuAdmin();
+}
 
     static void tampilkanInformasiGaji(int indexAkun) {
-        System.out.println("\nInformasi Gaji untuk Setiap Jabatan:");
-        for (int i = 0; i < dataPegawai.length; i++) {
-            System.out.println("=====================================");
-            System.out.println("Jabatan: " + dataPegawai[i][2]);
-            System.out.println("Gaji Pokok: Rp" + jadwalGaji[i][0]);
-            System.out.println("Bonus: Rp" + jadwalGaji[i][1]);
-            System.out.println("Potongan: Rp" + jadwalGaji[i][2]);
-            System.out.println("=====================================");
-
-        }
-
-        menuPegawai(indexAkun);
-
+    System.out.println("\nInformasi Gaji untuk Setiap Jabatan:");
+    for (int i = 0; i < jumlahJabatan; i++) {
+        System.out.println("=====================================");
+        System.out.println("Jabatan: " + dataPegawai[i][2]);
+        System.out.println("Gaji Pokok: Rp" + jadwalGaji[i][0]);
+        System.out.println("Bonus: Rp" + jadwalGaji[i][1]);
+        System.out.println("Potongan: Rp" + jadwalGaji[i][2]);
+        System.out.println("=====================================");
     }
+
+    menuPegawai(indexAkun);
+}
 
     static void menuLacakKehadiran() {
         System.out.println("Daftar Nama Pegawai:");
