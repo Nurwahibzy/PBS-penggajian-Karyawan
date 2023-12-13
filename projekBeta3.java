@@ -11,7 +11,7 @@ public class projekBeta3 {
             { "adminpassword1", "adminpassword2", "adminpassword3" } };
     static String manajer[][] = { { "manajer1", "manajer2", "manajer3" },
             { "manajerpassword1", "manajerpassword2", "manajerpassword3" } };
-    static String[][] dataPegawai = new String[100][10];
+    static String[][] dataPegawai = new String[100][11];
     // 100 pegawai, 10 atribut(nama,jabatan, Usia, lama bekerja,
     // jenisKelamin,ttl, kebangsaan, email, alamat, noTelp )
 
@@ -313,31 +313,31 @@ public class projekBeta3 {
             dataPegawai[nextIndexDataPegawai][0] = input.nextLine();
     
             System.out.print("Masukkan Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
-            dataPegawai[nextIndexDataPegawai][1] = input.nextLine();
-    
-            System.out.print("Masukkan Usia Pegawai: ");
             dataPegawai[nextIndexDataPegawai][2] = input.nextLine();
     
-            System.out.print("Masukkan Lama Bekerja Pegawai: ");
+            System.out.print("Masukkan Usia Pegawai: ");
             dataPegawai[nextIndexDataPegawai][3] = input.nextLine();
     
-            System.out.print("Masukkan Jenis Kelamin Pegawai: ");
+            System.out.print("Masukkan Lama Bekerja Pegawai: ");
             dataPegawai[nextIndexDataPegawai][4] = input.nextLine();
     
-            System.out.print("Masukkan Tempat, Tanggal Lahir Pegawai: ");
+            System.out.print("Masukkan Jenis Kelamin Pegawai: ");
             dataPegawai[nextIndexDataPegawai][5] = input.nextLine();
     
-            System.out.print("Masukkan Kebangsaan Pegawai: ");
+            System.out.print("Masukkan Tempat, Tanggal Lahir Pegawai: ");
             dataPegawai[nextIndexDataPegawai][6] = input.nextLine();
     
-            System.out.print("Masukkan Alamat Email Pegawai: ");
+            System.out.print("Masukkan Kebangsaan Pegawai: ");
             dataPegawai[nextIndexDataPegawai][7] = input.nextLine();
     
-            System.out.print("Masukkan Alamat Pegawai: ");
+            System.out.print("Masukkan Alamat Email Pegawai: ");
             dataPegawai[nextIndexDataPegawai][8] = input.nextLine();
     
-            System.out.print("Masukkan Nomor Telepon Pegawai: ");
+            System.out.print("Masukkan Alamat Pegawai: ");
             dataPegawai[nextIndexDataPegawai][9] = input.nextLine();
+    
+            System.out.print("Masukkan Nomor Telepon Pegawai: ");
+            dataPegawai[nextIndexDataPegawai][10] = input.nextLine();
     
 
             // Ask the user if they want to input data again
@@ -358,15 +358,15 @@ public class projekBeta3 {
         System.out.println("\nDATA PEGAWAI YANG TELAH DI INPUT:");
         System.out.println("Pegawai ke-" + (nextIndexDataPegawai + 1));
         System.out.println("Nama Pegawai: " + dataPegawai[nextIndexDataPegawai][0]);
-        System.out.println("Jabatan Pegawai: " + dataPegawai[nextIndexDataPegawai][1]);
-        System.out.println("Usia Pegawai: " + dataPegawai[nextIndexDataPegawai][2]);
-        System.out.println("Lama Pegawai Bekerja: " + dataPegawai[nextIndexDataPegawai][3]);
-        System.out.println("Jenis Kelamin: " + dataPegawai[nextIndexDataPegawai][4]);
-        System.out.println("Tempat, Tanggal Lahir: " + dataPegawai[nextIndexDataPegawai][5]);
-        System.out.println("Kebangsaan: " + dataPegawai[nextIndexDataPegawai][6]);
-        System.out.println("Email: " + dataPegawai[nextIndexDataPegawai][7]);
-        System.out.println("Alamat: " + dataPegawai[nextIndexDataPegawai][8]);
-        System.out.println("Telepon: " + dataPegawai[nextIndexDataPegawai][9]);
+        System.out.println("Jabatan Pegawai: " + dataPegawai[nextIndexDataPegawai][2]);
+        System.out.println("Usia Pegawai: " + dataPegawai[nextIndexDataPegawai][3]);
+        System.out.println("Lama Pegawai Bekerja: " + dataPegawai[nextIndexDataPegawai][4]);
+        System.out.println("Jenis Kelamin: " + dataPegawai[nextIndexDataPegawai][5]);
+        System.out.println("Tempat, Tanggal Lahir: " + dataPegawai[nextIndexDataPegawai][6]);
+        System.out.println("Kebangsaan: " + dataPegawai[nextIndexDataPegawai][7]);
+        System.out.println("Email: " + dataPegawai[nextIndexDataPegawai][8]);
+        System.out.println("Alamat: " + dataPegawai[nextIndexDataPegawai][9]);
+        System.out.println("Telepon: " + dataPegawai[nextIndexDataPegawai][10]);
         System.out.println("-----------------------------");
 
         menuManajemen();
@@ -383,15 +383,15 @@ public class projekBeta3 {
                 System.out.println("Data ditemukan!");
                 System.out.println("Pegawai ke-" + (i + 1));
                 System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
-                System.out.println("Jabatan Pegawai (Koki/Kasir/Pramusaji): " + dataPegawai[i][1]);
-                System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
-                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
-                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
-                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
-                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
-                System.out.println("Email Pegawai: " + dataPegawai[i][7]);
-                System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
-                System.out.println("Telepon Pegawai: " + dataPegawai[i][9]);
+                System.out.println("Jabatan Pegawai (Koki/Kasir/Pramusaji): " + dataPegawai[i][2]);
+                System.out.println("Usia Pegawai: " + dataPegawai[i][3]);
+                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][4]);
+                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][6]);
+                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][7]);
+                System.out.println("Email Pegawai: " + dataPegawai[i][8]);
+                System.out.println("Alamat Pegawai: " + dataPegawai[i][9]);
+                System.out.println("Telepon Pegawai: " + dataPegawai[i][10]);
 
                 System.out.println("\nPILIH DATA PEGAWAI YANG AKAN DIUBAH:");
                 System.out.println("1. Nama Pegawai");
@@ -415,39 +415,39 @@ public class projekBeta3 {
                         break;
                     case 2:
                         System.out.print("Masukkan Jabatan Pegawai (Koki/Kasir/Pramusaji): ");
-                        dataPegawai[i][1] = input.nextLine();
+                        dataPegawai[i][2] = input.nextLine();
                         break;
                     case 3:
                         System.out.print("Masukkan Usia Pegawai: ");
-                        dataPegawai[i][2] = input.nextLine();
+                        dataPegawai[i][3] = input.nextLine();
                         break;
                     case 4:
                         System.out.print("Masukkan Lama Pegawai Bekerja: ");
-                        dataPegawai[i][3] = input.nextLine();
+                        dataPegawai[i][4] = input.nextLine();
                         break;
                     case 5:
                         System.out.print("Masukkan Jenis Kelamin Pegawai: ");
-                        dataPegawai[i][4] = input.nextLine();
+                        dataPegawai[i][5] = input.nextLine();
                         break;
                     case 6:
                         System.out.print("Masukkan Tempat, Tanggal Lahir Pegawai: ");
-                        dataPegawai[i][5] = input.nextLine();
+                        dataPegawai[i][6] = input.nextLine();
                         break;
                     case 7:
                         System.out.print("Masukkan Kebangsaan Pegawai: ");
-                        dataPegawai[i][6] = input.nextLine();
+                        dataPegawai[i][7] = input.nextLine();
                         break;
                     case 8:
                         System.out.print("Masukkan Alamat Email Pegawai: ");
-                        dataPegawai[i][7] = input.nextLine();
+                        dataPegawai[i][8] = input.nextLine();
                         break;
                     case 9:
                         System.out.print("Masukkan Alamat Pegawai: ");
-                        dataPegawai[i][8] = input.nextLine();
+                        dataPegawai[i][9] = input.nextLine();
                         break;
                     case 10:
                         System.out.print("Masukkan Nomor Telepon Pegawai: ");
-                        dataPegawai[i][9] = input.nextLine();
+                        dataPegawai[i][10] = input.nextLine();
                         break;
                     default:
                         System.out.println("Pilihan tidak valid.");
@@ -456,15 +456,15 @@ public class projekBeta3 {
                 System.out.println("\nDATA PEGAWAI YANG TELAH DIUBAH:");
                 System.out.println("Pegawai ke-" + (i + 1));
                 System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
-                System.out.println("Jabatan Pegawai: " + dataPegawai[i][1]);
-                System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
-                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
-                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
-                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
-                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
-                System.out.println("Email Pegawai: " + dataPegawai[i][7]);
-                System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
-                System.out.println("Telepon Pegawai: " + dataPegawai[i][9]);
+                System.out.println("Jabatan Pegawai: " + dataPegawai[i][2]);
+                System.out.println("Usia Pegawai: " + dataPegawai[i][3]);
+                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][4]);
+                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][6]);
+                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][7]);
+                System.out.println("Email Pegawai: " + dataPegawai[i][8]);
+                System.out.println("Alamat Pegawai: " + dataPegawai[i][9]);
+                System.out.println("Telepon Pegawai: " + dataPegawai[i][10]);
                 ditemukanUbah = true;
                 break;
             }
@@ -488,22 +488,21 @@ public class projekBeta3 {
                 System.out.println("Data ditemukan!");
                 System.out.println("Pegawai ke-" + (i + 1));
                 System.out.println("Nama Pegawai: " + dataPegawai[i][0]);
-                System.out.println("Jabatan Pegawai: " + dataPegawai[i][1]);
-                System.out.println("Usia Pegawai: " + dataPegawai[i][2]);
-                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][3]);
-                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][4]);
-                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][5]);
-                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][6]);
-                System.out.println("Email Pegawai: " + dataPegawai[i][7]);
-                System.out.println("Alamat Pegawai: " + dataPegawai[i][8]);
-                System.out.println("Telepon Pegawai: " + dataPegawai[i][9]);
+                System.out.println("Jabatan Pegawai: " + dataPegawai[i][2]);
+                System.out.println("Usia Pegawai: " + dataPegawai[i][3]);
+                System.out.println("Lama Pegawai Bekerja: " + dataPegawai[i][4]);
+                System.out.println("Jenis Kelamin Pegawai: " + dataPegawai[i][5]);
+                System.out.println("Tempat, Tanggal Lahir Pegawai: " + dataPegawai[i][6]);
+                System.out.println("Kebangsaan Pegawai: " + dataPegawai[i][7]);
+                System.out.println("Email Pegawai: " + dataPegawai[i][8]);
+                System.out.println("Alamat Pegawai: " + dataPegawai[i][9]);
+                System.out.println("Telepon Pegawai: " + dataPegawai[i][10]);
 
                 System.out.print("Apakah Anda yakin ingin menghapus data pegawai ini? (Y/N): ");
                 String konfirmasi = input.nextLine();
                 if (konfirmasi.toLowerCase().equals("y")) {
                     for (int j = i; j < nextIndexDataPegawai - 1; j++) {
                         dataPegawai[j][0] = dataPegawai[j+1][0];
-                        dataPegawai[j][1] = dataPegawai[j+1][1];
                         dataPegawai[j][2] = dataPegawai[j+1][2];
                         dataPegawai[j][3] = dataPegawai[j+1][3];
                         dataPegawai[j][4] = dataPegawai[j+1][4];
@@ -512,6 +511,7 @@ public class projekBeta3 {
                         dataPegawai[j][7] = dataPegawai[j+1][7];
                         dataPegawai[j][8] = dataPegawai[j+1][8];
                         dataPegawai[j][9] = dataPegawai[j+1][9];
+                        dataPegawai[j][10] = dataPegawai[j+1][10];
                     }
                     nextIndexDataPegawai--;
                     System.out.println("Data pegawai berhasil dihapus.");
@@ -546,15 +546,15 @@ public class projekBeta3 {
             int i = pilihan - 1;
             System.out.println("Detail Pegawai:");
             System.out.println("Nama Pegawai                    : " + dataPegawai[i][0]);
-            System.out.println("Jabatan Pegawai                 : " + dataPegawai[i][1]);
-            System.out.println("Usia Pegawai                    : " + dataPegawai[i][2]);
-            System.out.println("Lama Pegawai Bekerja            : " + dataPegawai[i][3]);
-            System.out.println("Jenis Kelamin Pegawai           : " + dataPegawai[i][4]);
-            System.out.println("Tempat, Tanggal Lahir Pegawai   : " + dataPegawai[i][5]);
-            System.out.println("Kebangsaan Pegawai              : " + dataPegawai[i][6]);
-            System.out.println("Email Pegawai                   : " + dataPegawai[i][7]);
-            System.out.println("Alamat Pegawai                  : " + dataPegawai[i][8]);
-            System.out.println("Telepon Pegawai                 : " + dataPegawai[i][9]);
+            System.out.println("Jabatan Pegawai                 : " + dataPegawai[i][2]);
+            System.out.println("Usia Pegawai                    : " + dataPegawai[i][3]);
+            System.out.println("Lama Pegawai Bekerja            : " + dataPegawai[i][4]);
+            System.out.println("Jenis Kelamin Pegawai           : " + dataPegawai[i][5]);
+            System.out.println("Tempat, Tanggal Lahir Pegawai   : " + dataPegawai[i][6]);
+            System.out.println("Kebangsaan Pegawai              : " + dataPegawai[i][7]);
+            System.out.println("Email Pegawai                   : " + dataPegawai[i][8]);
+            System.out.println("Alamat Pegawai                  : " + dataPegawai[i][9]);
+            System.out.println("Telepon Pegawai                 : " + dataPegawai[i][10]);
         } else {
             System.out.println("Nomor pegawai tidak valid.");
         }
@@ -577,15 +577,15 @@ public class projekBeta3 {
                 System.out.println("Data ditemukan!");
                 System.out.println("Pegawai ke-" + (i + 1));
                 System.out.println("Nama Pegawai                    : " + dataPegawai[i][0]);
-                System.out.println("Jabatan Pegawai                 : " + dataPegawai[i][1]);
-                System.out.println("Usia Pegawai                    : " + dataPegawai[i][2]);
-                System.out.println("Lama Pegawai Bekerja            : " + dataPegawai[i][3]);
-                System.out.println("Jenis Kelamin Pegawai           : " + dataPegawai[i][4]);
-                System.out.println("Tempat, Tanggal Lahir Pegawai   : " + dataPegawai[i][5]);
-                System.out.println("Kebangsaan Pegawai              : " + dataPegawai[i][6]);
-                System.out.println("Email Pegawai                   : " + dataPegawai[i][7]);
-                System.out.println("Alamat Pegawai                  : " + dataPegawai[i][8]);
-                System.out.println("Telepon Pegawai                 : " + dataPegawai[i][9]);
+                System.out.println("Jabatan Pegawai                 : " + dataPegawai[i][2]);
+                System.out.println("Usia Pegawai                    : " + dataPegawai[i][3]);
+                System.out.println("Lama Pegawai Bekerja            : " + dataPegawai[i][4]);
+                System.out.println("Jenis Kelamin Pegawai           : " + dataPegawai[i][5]);
+                System.out.println("Tempat, Tanggal Lahir Pegawai   : " + dataPegawai[i][6]);
+                System.out.println("Kebangsaan Pegawai              : " + dataPegawai[i][7]);
+                System.out.println("Email Pegawai                   : " + dataPegawai[i][8]);
+                System.out.println("Alamat Pegawai                  : " + dataPegawai[i][9]);
+                System.out.println("Telepon Pegawai                 : " + dataPegawai[i][10]);
                 System.out.println("=====================================");
                 ditemukanCari = true;
                 break;
@@ -617,13 +617,13 @@ public class projekBeta3 {
             System.out.print("Jabatan (Koki/Kasir/Pramusaji): ");
             dataPegawai[i][2] = input.nextLine().toLowerCase();
 
-            System.out.print("Gaji Pokok untuk " + dataPegawai[i][1] + ": Rp");
+            System.out.print("Gaji Pokok untuk " + dataPegawai[i][2] + ": Rp");
             jadwalGaji[i][0] = input.nextDouble();
 
-            System.out.print("Bonus untuk " + dataPegawai[i][1] + ": Rp");
+            System.out.print("Bonus untuk " + dataPegawai[i][2] + ": Rp");
             jadwalGaji[i][1] = input.nextDouble();
 
-            System.out.print("Potongan untuk " + dataPegawai[i][1] + ": Rp");
+            System.out.print("Potongan untuk " + dataPegawai[i][2] + ": Rp");
             jadwalGaji[i][2] = input.nextDouble();
 
             input.nextLine();
