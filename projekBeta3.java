@@ -346,29 +346,14 @@ public class projekBeta3 {
             System.out.print("\nIngin input kembali? (ya/tidak): ");
             String jawaban = input.nextLine();
 
+            nextIndexDataPegawai++;
+
             if (!jawaban.equalsIgnoreCase("ya")) {
                 break; // Exit the loop if the answer is not "ya"
             }
 
-            // Increment the index for the next employee
-            nextIndexDataPegawai++;
-
+          
         } while (true);
-
-        // Display the entered data or perform other actions
-        System.out.println("\nDATA PEGAWAI YANG TELAH DI INPUT:");
-        System.out.println("Pegawai ke-" + (nextIndexDataPegawai + 1));
-        System.out.println("Nama Pegawai: " + dataPegawai[nextIndexDataPegawai][0]);
-        System.out.println("Jabatan Pegawai: " + dataPegawai[nextIndexDataPegawai][2]);
-        System.out.println("Usia Pegawai: " + dataPegawai[nextIndexDataPegawai][3]);
-        System.out.println("Lama Pegawai Bekerja: " + dataPegawai[nextIndexDataPegawai][4]);
-        System.out.println("Jenis Kelamin: " + dataPegawai[nextIndexDataPegawai][5]);
-        System.out.println("Tempat, Tanggal Lahir: " + dataPegawai[nextIndexDataPegawai][6]);
-        System.out.println("Kebangsaan: " + dataPegawai[nextIndexDataPegawai][7]);
-        System.out.println("Email: " + dataPegawai[nextIndexDataPegawai][8]);
-        System.out.println("Alamat: " + dataPegawai[nextIndexDataPegawai][9]);
-        System.out.println("Telepon: " + dataPegawai[nextIndexDataPegawai][10]);
-        System.out.println("-----------------------------");
 
         menuManajemen();
         
@@ -503,16 +488,16 @@ public class projekBeta3 {
                 String konfirmasi = input.nextLine();
                 if (konfirmasi.toLowerCase().equals("y")) {
                     for (int j = i; j < nextIndexDataPegawai - 1; j++) {
-                        dataPegawai[j][0] = dataPegawai[j+1][0];
-                        dataPegawai[j][2] = dataPegawai[j+1][2];
-                        dataPegawai[j][3] = dataPegawai[j+1][3];
-                        dataPegawai[j][4] = dataPegawai[j+1][4];
-                        dataPegawai[j][5] = dataPegawai[j+1][5];
-                        dataPegawai[j][6] = dataPegawai[j+1][6];
-                        dataPegawai[j][7] = dataPegawai[j+1][7];
-                        dataPegawai[j][8] = dataPegawai[j+1][8];
-                        dataPegawai[j][9] = dataPegawai[j+1][9];
-                        dataPegawai[j][10] = dataPegawai[j+1][10];
+                        dataPegawai[j][0] = null;
+                        dataPegawai[j][2] = null;
+                        dataPegawai[j][3] = null;
+                        dataPegawai[j][4] = null;
+                        dataPegawai[j][5] = null;
+                        dataPegawai[j][6] = null;
+                        dataPegawai[j][7] = null;
+                        dataPegawai[j][8] = null;
+                        dataPegawai[j][9] = null;
+                        dataPegawai[j][10] = null;
                     }
                     nextIndexDataPegawai--;
                     System.out.println("Data pegawai berhasil dihapus.");
@@ -609,8 +594,6 @@ public class projekBeta3 {
     jumlahJabatan = input.nextInt();
     input.nextLine(); // Membersihkan buffer
 
-    //dataPegawai = new String[jumlahJabatan][3];
-    //jadwalGaji = new double[jumlahJabatan][4];
 
     for (int i = 0; i < jumlahJabatan; i++) {
         System.out.println("\nMasukkan informasi untuk Jabatan ke-" + (i + 1) + ":");
